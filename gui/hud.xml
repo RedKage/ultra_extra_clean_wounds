@@ -1,0 +1,671 @@
+<EventActionBatch name="GAME_GUI_SHOW_GAME_HUD">
+	<GUIAction type="Show" target="HUD"/>
+	<GUIAction type="Hide" target="HUD_Sniper"/> <!-- sniper HUD hidden by default -->
+	<GUIAction type="Hide" target="HUD_Maximize"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_SHOW_GAME_HUD_MINIMIZED">
+	<GUIAction type="Hide" target="HUD"/>
+	<GUIAction type="Show" target="HUD_Maximize"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_HIDE_GAME_HUD">
+	<GUIAction type="Hide" target="HUD"/>
+	<GUIAction type="Hide" target="HUD_Maximize"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_SHOW_REPLAY_HUD">
+	<GUIAction type="Hide" target="HUD_Replay"/>
+	<GUIAction type="Check" target="HUD_ReplayPauseCheckbox"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_HIDE_REPLAY_HUD">
+	<GUIAction type="Hide" target="HUD_Replay"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_SHOW_SNIPER_HUD">
+	<GUIAction type="Show" target="HUD_Sniper"/>
+</EventActionBatch>
+
+<!-- these events are triggered by the game in response to the GUI_GAME_* events -->
+<EventActionBatch name="GAME_GUI_PAUSE">
+	<GUIAction type="Hide" target="HUD_LevelPause"/>
+	<GUIAction type="Show" target="HUD_LevelResume"/>
+	<GUIAction type="Show" target="HUD_PausedBackground"/>
+	<GUIAction type="Show" target="HUD_MainMenu_Paused"/>
+	<GUIAction type="Hide" target="HUD_MainMenu"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_RESUME">
+	<GUIAction type="Hide" target="HUD_LevelResume"/>
+	<GUIAction type="Show" target="HUD_LevelPause"/>
+	<GUIAction type="Hide" target="HUD_PausedBackground"/>
+	<GUIAction type="Hide" target="HUD_MainMenu_Paused"/>
+	<GUIAction type="Show" target="HUD_MainMenu"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_PAUSE_REPLAY">
+	<GUIAction type="Check" target="HUD_ReplayPauseCheckbox"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_RESUME_REPLAY">
+	<GUIAction type="Uncheck" target="HUD_ReplayPauseCheckbox"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_GOCODE_A">
+	<GUIAction type="Show" target="HUD_GoCodeA"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_GOCODE_B">
+	<GUIAction type="Show" target="HUD_GoCodeB"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_GOCODE_C">
+	<GUIAction type="Show" target="HUD_GoCodeC"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_GOCODE_A">
+	<GUIAction type="Hide" target="HUD_GoCodeA"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_GOCODE_B">
+	<GUIAction type="Hide" target="HUD_GoCodeB"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_GOCODE_C">
+	<GUIAction type="Hide" target="HUD_GoCodeC"/>
+</EventActionBatch>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<StaticImage name="HUD" origin="960 34" hidden="true" sizeX="1" sizeY="1">
+	<RenderObject2D texture="data/textures/gui/hud/hud_bar.tga"/>
+
+	<StaticImage name="HUD_PausedBackground" hidden="true" sizeX="1" sizeY="1">
+		<RenderObject2D texture="data/textures/gui/hud/hud_bar_red.tga"/>
+
+		<StaticImage name="HUD_PausedText" origin="200 0">
+			<RenderObject2D texture="data/textures/gui/hud/hud_planning.tga"/>
+		</StaticImage>
+	</StaticImage>
+
+	<Button name="HUD_LevelPause" origin="0 -3" tooltip="Pause gameplay (SPACE)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_pause_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/hud_pause_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/hud_pause_normal.tga"/>
+			<GUIAction type="TriggerEvent" target="TYPE_TOGGLE_PAUSE"/>
+		</OnClick>
+	</Button>
+
+	<Button name="HUD_LevelResume" origin="0 -3" tooltip="Resume gameplay (SPACE)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_play_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/hud_play_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/hud_play_normal.tga"/>
+			<GUIAction type="TriggerEvent" target="TYPE_TOGGLE_PAUSE"/>
+		</OnClick>
+	</Button>
+
+	<Button name="HUD_MainMenu" origin="-169 0" tooltip="Open Main Menu">
+		<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_normal.tga"/>
+			<GUIAction type="Show" target="Menu_InGame"/>
+		</OnClick>
+	</Button>
+
+	<Button name="HUD_MainMenu_Paused" origin="-169 0" tooltip="Open Main Menu">
+		<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_paused_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_paused_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_paused_normal.tga"/>
+			<GUIAction type="Show" target="Menu_InGame"/>
+		</OnClick>
+	</Button>
+
+	<StaticImage name="HUD_GoCodesBackground" origin="483 0">
+		<RenderObject2D texture="data/textures/gui/hud/hud_abc_off.tga"/>
+
+		<StaticImage name="HUD_Go" origin="-90 0">
+			<RenderObject2D texture="data/textures/gui/hud/hud_go_on.tga"/>
+		</StaticImage>
+
+		<Button name="HUD_GoCodeA" origin="-51 0" tooltip="Go Code Alpha" hidden="true">
+			<RenderObject2D texture="data/textures/gui/hud/hud_a_normal.tga"/>-->
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/hud/hud_a_hover.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/hud/hud_a_normal.tga"/>
+				<GUIAction type="Hide" target="HUD_GoCodeA"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_GOCODE_A"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			</OnClick>
+		</Button>
+
+		<Button name="HUD_GoCodeB" origin="0 0" tooltip="Go Code Bravo" hidden="true">
+			<RenderObject2D texture="data/textures/gui/hud/hud_b_normal.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/hud/hud_b_hover.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/hud/hud_b_normal.tga"/>
+				<GUIAction type="Hide" target="HUD_GoCodeB"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_GOCODE_B"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			</OnClick>
+		</Button>
+
+		<Button name="HUD_GoCodeC" origin="51 0" tooltip="Go Code Charlie" hidden="true">
+			<RenderObject2D texture="data/textures/gui/hud/hud_c_normal.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/hud/hud_c_hover.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/hud/hud_c_normal.tga"/>
+				<GUIAction type="Hide" target="HUD_GoCodeC"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_GOCODE_C"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			</OnClick>
+		</Button>
+	</StaticImage>
+
+	<Item name="HUD_Sniper" origin="-600 0">
+		<Button name="HUD_SniperFire" origin="0 0" tooltip="Fire!">
+			<RenderObject2D texture="data/textures/gui/hud/sniperbutton_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/hud/sniperbutton_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/hud/sniperbutton_normal.tga"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_SNIPER_SHOOT"/>
+			</OnClick>
+		</Button>
+
+		<StaticImage origin="100 3">
+			<RenderObject2D texture="data/textures/gui/hud/sniper.tga"/>
+		</StaticImage>
+	</Item>
+
+	<Button origin="930 0" tooltip="Minimize HUD">
+		<RenderObject2D texture="data/textures/gui/deploy_screen/hidearrow_normal.tga" flipY="true"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/deploy_screen/hidearrow_hover.tga" flipY="true"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/deploy_screen/hidearrow_normal.tga" flipY="true"/>
+			<GUIAction type="TriggerEvent" target="GAME_GUI_SHOW_GAME_HUD_MINIMIZED"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_MINIMIZE_GAME_HUD"/>
+		</OnClick>
+	</Button>
+
+	<StaticText name="HUD_TimerText" origin="-78 -1" text="XX:XX" alignH="center" font="data/textures/fonts/numbers_normal_24" textColor="ffdda35c" hidden="true"/>
+	<StaticText name="HUD_TimerText_Paused" origin="-78 -1" text="XX:XX" alignH="center" font="data/textures/fonts/numbers_normal_24" textColor="ff0084ff" hidden="true"/>
+</StaticImage>
+
+<Button name="HUD_Maximize" origin="1890 15" tooltip="Maximize HUD" hidden="true">
+	<RenderObject2D texture="data/textures/gui/deploy_screen/hidearrow_normal.tga"/>
+	<OnHover>
+		<RenderObject2D texture="data/textures/gui/deploy_screen/hidearrow_hover.tga"/>
+	</OnHover>
+	<OnClick>
+		<RenderObject2D texture="data/textures/gui/deploy_screen/hidearrow_normal.tga"/>
+		<GUIAction type="Show" target="HUD"/>
+		<GUIAction type="Hide" target="HUD_Maximize"/>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_MAXIMIZE_GAME_HUD"/>
+	</OnClick>
+</Button>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="HUD_SWAT_Tooltip_Items" hidden="true">
+	<StaticImage name="Flashbang">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_flashbang.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+	<StaticImage name="Stinger">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_stinger.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+	<StaticImage name="Breaching charge">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_charge.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+	<StaticImage name="Tazer">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_tazer.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+	<StaticImage name="Lockpick machine">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_lockpickgun.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+	<StaticImage name="Dynamic hammer">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_hammer.tga"/>
+	</StaticImage>
+	<StaticImage name="Spy camera">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_camera.tga"/>
+	</StaticImage>
+
+	<StaticImage name="Concealable Armor">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_armor_01.tga"/>
+		<StaticText name="#Name" origin="26 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+	<StaticImage name="Lightweight Armor">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_armor_01.tga"/>
+		<StaticText name="#Name" origin="26 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9" hidden="true"/>
+	</StaticImage>
+	<StaticImage name="Standard Armor">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_armor_02.tga"/>
+		<StaticText name="#Name" origin="26 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9" hidden="true"/>
+	</StaticImage>
+	<StaticImage name="Front Plate Only">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_armor_02.tga"/>
+		<StaticText name="#Name" origin="26 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9" hidden="true"/>
+	</StaticImage>
+	<StaticImage name="Extended Protection">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_armor_03.tga"/>
+		<StaticText name="#Name" origin="26 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9" hidden="true"/>
+	</StaticImage>
+
+	<StaticImage name="Enforcer Shield (Level IIIA)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shield.tga"/>
+	</StaticImage>
+	<StaticImage name="Gunfighter Shield (Level IIIA)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shield.tga"/>
+	</StaticImage>
+	<StaticImage name="Bunker Shield (Level IIIA)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shield.tga"/>
+	</StaticImage>
+	<StaticImage name="Assault Shield (Level III)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shield.tga"/>
+	</StaticImage>
+	<StaticImage name="Ironman Shield (Level III)">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shield.tga"/>
+	</StaticImage>
+</Item>
+
+<Item name="HUD_SWAT_Tooltip" origin="960 480" hidden="true">
+	<StaticImage name="#Background" origin="154 0">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_swat.tga"/>
+
+		<StaticImage name="#RankIcon" origin="-63 22">
+			<RenderObject2D texture="data/textures/gui/rank_icons/menu_icon_ranksmall_07.tga"/>
+		</StaticImage>
+
+		<StaticText name="#Name" origin="105 20" text="Pintea Haiducul" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+
+		<Item name="EquippedWeapon" origin="-60 0">
+			<StaticImage name="#EqpPistol" origin="0 0" hidden="true">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="7/7" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+
+			<StaticImage name="#EqpRifle" origin="0 0">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_rifle.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+
+			<StaticImage name="#EqpShotgun" origin="0 0" hidden="true">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shotgun.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+
+			<StaticImage name="#EqpTazer" origin="0 0" hidden="true">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_tazer.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+		</Item>
+
+		<Item name="#InvWithWeap" origin="-60 -20">
+			<StaticImage name="#InvPistol" origin="0 0" hidden="true">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="7/7" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+			</StaticImage>
+
+			<StaticImage name="#InvRifle" origin="0 0">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_rifle.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+			</StaticImage>
+
+			<StaticImage name="#InvShotgun" origin="0 0">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shotgun.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+			</StaticImage>
+
+			<StaticImage name="#InvTazer" origin="0 0">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_tazer.tga"/>
+				<StaticText name="#Info" origin="25 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+			</StaticImage>
+
+			<Item name="UtilityPouch1" origin="60 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="UtilityPouch2" origin="95 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="Armor" origin="130 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="SupportGear1" origin="155 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+			<Item name="SupportGear2" origin="190 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+			<Item name="SupportGear3" origin="225 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+		</Item>
+
+		<Item name="#InvWithoutWeap" origin="-60 -20">
+			<Item name="UtilityPouch1" origin="0 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="UtilityPouch2" origin="35 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="Armor" origin="70 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="SupportGear1" origin="95 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+			<Item name="SupportGear2" origin="120 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+			<Item name="SupportGear3" origin="155 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+		</Item>
+
+		<StaticImage name="#Injury1" origin="117 21" hidden="false">
+			<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_injured01.tga"/>
+		</StaticImage>
+
+		<StaticImage name="#Injury2" origin="117 21" hidden="true">
+			<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_injured02.tga"/>
+		</StaticImage>
+
+		<StaticImage name="#Portrait" origin="-108 0">
+			<RenderObject2D sizeX="60" sizeY="60" texture="data/textures/gui/customization/portraits/default.tga"/>
+		</StaticImage>
+	</StaticImage>
+</Item>
+
+<Item name="HUD_Enemy_Tooltip" origin="960 480" hidden="true">
+	<StaticImage name="#Background" origin="154 0">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_badguy.tga"/>
+
+		<StaticText name="#Name" origin="85 20" text="Pintea Haiducul" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+
+		<Item name="EquippedWeapon" origin="-60 0">
+			<StaticImage name="#EqpPistol" origin="0 0" hidden="true">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
+				<StaticText name="#Info" origin="26 -1" text="7/7" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+
+			<StaticImage name="#EqpRifle" origin="0 0">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_rifle.tga"/>
+				<StaticText name="#Info" origin="26 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+
+			<StaticImage name="#EqpShotgun" origin="0 0" hidden="true">
+				<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shotgun.tga"/>
+				<StaticText name="#Info" origin="26 -1" text="37/37" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="ffffffff"/>
+			</StaticImage>
+		</Item>
+
+		<StaticText name="#Tooltip" origin="85 0" text="Tooooooooooooltiiiiiiiiipppppppp" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+
+		<Item name="#InvWithoutWeap" origin="-60 -20">
+			<Item name="Armor" origin="0 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="UtilityPouch1" origin="35 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="UtilityPouch2" origin="70 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+
+			<Item name="SupportGear" origin="95 0">
+				<!-- items added here from HUD_SWAT_Tooltip_Items -->
+			</Item>
+		</Item>
+
+		<StaticImage name="#Portrait" origin="-108 0">
+			<RenderObject2D sizeX="60" sizeY="60" texture="data/textures/gui/customization/portraits/default.tga"/>
+		</StaticImage>
+	</StaticImage>
+</Item>
+
+
+<Item name="HUD_Generic_Tooltip" origin="960 250" hidden="true">
+	<StaticImage name="#Background" origin="125 0">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip02_backgr.tga"/>
+
+		<StaticText name="#Name" origin="20 0" text="Pintea Haiducul" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<StaticImage name="HUD_Replay" origin="960 34" hidden="true">
+	<RenderObject2D texture="data/textures/gui/hud/replay/hud_bar_replay.tga"/>
+
+	<StaticImage name="HUD_ReplayRunningText" origin="350 0">
+		<RenderObject2D texture="data/textures/gui/hud/replay/hud_replay.tga"/>
+	</StaticImage>
+
+	<StaticImage name="HUD_ReplayPausedBackground" hidden="false">
+		<RenderObject2D texture="data/textures/gui/hud/hud_bar_red.tga"/>
+
+		<StaticImage name="HUD_ReplayPausedText" origin="320 0">
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_replaypaused.tga"/>
+		</StaticImage>
+	</StaticImage>
+
+	<Checkbox name="HUD_ReplayPauseCheckbox" origin="0 -3" defaultState="CheckedState" tooltip="Pause/unpause replay">
+		<UncheckedState>
+			<RenderObject2D texture="data/textures/gui/hud/hud_pause_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/hud/hud_pause_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/hud/hud_pause_normal.tga"/>
+				<GUIAction type="Show" target="HUD_ReplayPausedBackground"/>
+				<GUIAction type="Hide" target="HUD_ReplayRunningText"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE_REPLAY"/>
+			</OnClick>
+		</UncheckedState>
+
+		<CheckedState>
+			<RenderObject2D texture="data/textures/gui/hud/hud_play_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/hud/hud_play_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/hud/hud_play_normal.tga"/>
+				<GUIAction type="Hide" target="HUD_ReplayPausedBackground"/>
+				<GUIAction type="Show" target="HUD_ReplayRunningText"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME_REPLAY"/>
+			</OnClick>
+		</CheckedState>
+	</Checkbox>
+
+	<Button origin="-49 -3" tooltip="Rewind">
+		<RenderObject2D texture="data/textures/gui/hud/replay/hud_rewind_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_rewind_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_rewind_normal.tga"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_REPLAY_REWIND"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="49 -3" tooltip="Jump forward">
+		<RenderObject2D texture="data/textures/gui/hud/replay/hud_forward_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_forward_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_forward_normal.tga"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_REPLAY_JUMP_FORWARD"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="131 -3" tooltip="Decrease playback speed (KP-)">
+		<RenderObject2D texture="data/textures/gui/hud/replay/hud_minus_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_minus_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_minus_normal.tga"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_REPLAY_DECR_SPEED"/>
+		</OnClick>
+	</Button>
+
+	<StaticText name="HUD_ReplayPlaybackSpeed" origin="166 -3" text="1x" alignH="center" font="data/textures/fonts/numbers_normal_14" textColor="ffdda35c"/>
+
+	<Button origin="201 -3" tooltip="Increase playback speed (KP+)">
+		<RenderObject2D texture="data/textures/gui/hud/replay/hud_plus_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_plus_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_plus_normal.tga"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_REPLAY_INCR_SPEED"/>
+		</OnClick>
+	</Button>
+
+	<Button name="HUD_ReplayMainMenu" origin="-216 -1" tooltip="Open Main Menu">
+		<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/hud/hud_buttonmenu_normal.tga"/>
+			<GUIAction type="Check" target="HUD_ReplayPauseCheckbox"/>
+			<GUIAction type="Show" target="Menu_InGame"/>
+		</OnClick>
+	</Button>
+
+	<Item name="HUD_ReplayOptions" origin="483 0">
+		<StaticImage origin="-51 0">
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_buttonslot.tga"/>
+			<Button name="HUD_ReplayOptionFOW" origin="0 0" tooltip="Toggle fog of war" acceptInput="false">
+				<RenderObject2D texture="data/textures/gui/hud/replay/hud_fow_off.tga"/>
+				<OnHover>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_fow_hover.tga"/>
+				</OnHover>
+				<OnClick>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_fow_normal.tga"/>
+				</OnClick>
+			</Button>
+		</StaticImage>
+
+		<StaticImage origin="0 0">
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_buttonslot.tga"/>
+			<Button name="HUD_ReplayOptionCinematic" origin="0 0" tooltip="Cinematic mode" acceptInput="false">
+				<RenderObject2D texture="data/textures/gui/hud/replay/hud_cinematic_off.tga"/>
+				<OnHover>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_cinematic_hover.tga"/>
+				</OnHover>
+				<OnClick>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_cinematic_normal.tga"/>
+				</OnClick>
+			</Button>
+		</StaticImage>
+
+		<StaticImage origin="51 0">
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_buttonslot.tga"/>
+			<Button name="HUD_ReplayOptionSmartPause" origin="0 0" tooltip="Smart pause" acceptInput="false">
+				<RenderObject2D texture="data/textures/gui/hud/replay/hud_smartpause_off.tga"/>
+				<OnHover>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_smartpause_hover.tga"/>
+				</OnHover>
+				<OnClick>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_smartpause_normal.tga"/>
+				</OnClick>
+			</Button>
+		</StaticImage>
+
+		<StaticImage origin="102 0">
+			<RenderObject2D texture="data/textures/gui/hud/replay/hud_buttonslot.tga"/>
+			<Button origin="0 0" tooltip="Play from here">
+				<RenderObject2D texture="data/textures/gui/hud/replay/hud_playfromhere_normal.tga"/>
+				<OnHover>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_playfromhere_hover.tga"/>
+				</OnHover>
+				<OnClick>
+					<RenderObject2D texture="data/textures/gui/hud/replay/hud_playfromhere_normal.tga"/>
+					<GUIAction type="TriggerEvent" target="GUI_GAME_RESUMEPLAY_FROM_REPLAY"/>
+				</OnClick>
+			</Button>
+		</StaticImage>
+	</Item>
+
+	<StaticText name="HUD_ReplayTimerText" origin="-125 -1" text="XX:XX" alignH="center" font="data/textures/fonts/numbers_normal_24" textColor="ffdda35c" hidden="true"/>
+	<StaticText name="HUD_ReplayTimerText_Paused" origin="-125 -1" text="XX:XX" alignH="center" font="data/textures/fonts/numbers_normal_24" textColor="ff0084ff" hidden="true"/>
+</StaticImage>
+
+<!--
+<Button name="HUD_OffscreenIndicator_Pointman" hidden="true" acceptInput="false">
+	<RenderObject2D texture="data/textures/gui/hud/pointer_pointman.tga"/>
+</Button>
+
+<Button name="HUD_OffscreenIndicator_Assaulter" hidden="true" acceptInput="false">
+	<RenderObject2D texture="data/textures/gui/hud/pointer_assault.tga"/>
+</Button>
+
+<Button name="HUD_OffscreenIndicator_Breacher" hidden="true" acceptInput="false">
+	<RenderObject2D texture="data/textures/gui/hud/pointer_breacher.tga"/>
+</Button>
+
+<Button name="HUD_OffscreenIndicator_Stealth" hidden="true" acceptInput="false">
+	<RenderObject2D texture="data/textures/gui/hud/pointer_stealth.tga"/>
+</Button>
+
+<Button name="HUD_OffscreenIndicator_Shield" hidden="true" acceptInput="false">
+	<RenderObject2D texture="data/textures/gui/hud/pointer_shield.tga"/>
+</Button>
+-->

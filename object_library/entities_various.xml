@@ -1,0 +1,2080 @@
+<!-- sizeX and sizeY should be the same as the texture's width and height for best image quality ! ... but is not mandatory -->
+
+<!-- Entity types
+Static
+Human
+Door
+Cover
+RescueZone
+TimeBomb
+Sound
+DeployZone
+SpawnZone
+SpawnPoint
+Sniper
+Window
+FX
+-->
+
+<!-- RenderObject2D parameters
+"layer" = this can be whatever value, but there are some conventions that must be kept
+BACKGROUND				= 0,  // background image
+DECALS					= 1,  // these appear under all other entities: stamp entities, fx like blood etc
+						...,  // objects that are rendered beneath the characters, furniture usually
+CHARACTERS				= 10, // characters
+						...   // anything that goes above the characters and below the walls
+WALLS					= 20, // this is the layer used for rendering the walls, so you can set what's rendered below/above the walls
+						..	  // these are rendered on top of the walls
+FX						= 30, // special effects, these are rendered on top of the blue fog of war
+
+"blendMode" = none, normal, multiply, add, add_masked, overlay
+(default is normal)
+
+"sizeX" / "sizeY" - use this if you want to resize the texture from its original size
+
+"flipX" = "true" / "false"
+"flipY" = "true" / "false"
+-->
+
+<!--
+Possible entity parameters:
+
+	fogOfWarVisibility="hidden / partial(default) / full"
+
+	// these are preferable for object instances
+	origin="x y"
+	rotation="x"
+	hidden="true/false(default)"
+-->
+
+<!--
+Collision type flags
+type="static(default, for things that don't move or think)/dynamic"
+value= can be one or more (the sum of...) of the following
+CM_MOVEMENT_OK					= 0, // allow movement
+CM_MOVEMENT_CAN_BE_JUMPED		= 1, // blocks movement but can be jumped over
+CM_MOVEMENT_BLOCK				= 2, // full movement block
+CM_VISION_OK					= 4, // allows vision
+CM_VISION_BLOCK_CROUCHED		= 8, // hides crouched characters
+CM_VISION_BLOCK					= 16, // full vision block
+-->
+
+<Entities>
+	<!--++++++++++++-->
+	<!-- Doors -->
+	<!-- using custom sizeX/Y to control the range of interaction (the range within which the human can interact with a door) -->
+	<!--++++++++++++-->
+		<Entity name="Door1" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Door">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="0"
+				lockPickTimeSeconds="0"
+				breachTimeSeconds="0"
+				openAnimation="ANIM_DOOR_OPEN"
+				closeAnimation="ANIM_DOOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOOR_OPEN"
+				sfxClose="SFX_DOOR_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+		</Entity>
+
+		<Entity name="DoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Door (Locked)">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="10"
+				breachTimeSeconds="4"
+				openAnimation="ANIM_DOOR_OPEN"
+				closeAnimation="ANIM_DOOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOOR_OPEN"
+				sfxClose="SFX_DOOR_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+		</Entity>
+
+		<Entity name="FlimsyDoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Flimsy Door (Locked)">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="10"
+				breachTimeSeconds="1.5"
+				openAnimation="ANIM_DOOR_OPEN"
+				closeAnimation="ANIM_DOOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOOR_OPEN"
+				sfxClose="SFX_DOOR_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+		</Entity>
+
+
+		<Entity name="SafeDoorLocked" type="Door" locked="1" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Safe Door (Locked)">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="60"
+				breachTimeSeconds="30"
+				openAnimation="ANIM_DOOR_OPEN"
+				closeAnimation="ANIM_DOOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOOR_OPEN"
+				sfxClose="SFX_DOOR_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/SafeDoor.tga" layer="3"/>
+		</Entity>
+
+		<Entity name="PrisonDoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Bars Door (Locked)">
+			<CollisionInfo type="dynamic" flags="4"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="10"
+				breachTimeSeconds="4"
+				openAnimation="ANIM_DOOR_OPEN"
+				closeAnimation="ANIM_DOOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOOR_OPEN"
+				sfxClose="SFX_DOOR_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+		</Entity>
+
+		<Entity name="GlassDoor" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Glass Door">
+			<CollisionInfo type="dynamic" flags="4"/>
+			<Parameters
+				locked="0"
+				lockPickTimeSeconds="0"
+				breachTimeSeconds="0"
+				openAnimation="ANIM_DOOR_OPEN"
+				closeAnimation="ANIM_DOOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOOR_OPEN"
+				sfxClose="SFX_DOOR_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+		</Entity>
+
+		<Entity name="DoorBus" type="Door" fogOfWarVisibility="full" tooltip="Door">
+			<Parameters
+				locked="0"
+				lockPickTimeSeconds="0"
+				breachTimeSeconds="0"
+				openAnimation="ANIM_DOOR_BUS_OPEN"
+				closeAnimation="ANIM_DOOR_BUS_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOORSL_OPEN"
+				sfxClose="SFX_DOORSL_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<CollisionInfo type="dynamic" flags="16"/>
+			<RenderObject2D texture="data/textures/environment/door2.dds" layer="3"/>
+		</Entity>
+
+		<Entity name="DoorElevator" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="128" tooltip="Elevator Doors">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="60"
+				breachTimeSeconds="30"
+				openAnimation="ANIM_DOOR_ELEVATOR_OPEN"
+				closeAnimation="ANIM_DOOR_ELEVATOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOORSL_OPEN"
+				sfxClose="SFX_DOORSL_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door3.dds" layer="3"/>
+		</Entity>
+
+
+		<Entity name="DoorSlidingBlocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="128" tooltip="Sliding Doors">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="300"
+				breachTimeSeconds="2"
+				openAnimation="ANIM_DOOR_ELEVATOR_OPEN"
+				closeAnimation="ANIM_DOOR_ELEVATOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOORSL_OPEN"
+				sfxClose="SFX_DOORSL_CLOSE"
+				sfxBreak="SFX_DOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USE"
+			/>
+			<RenderObject2D texture="data/textures/environment/door3.dds" layer="3"/>
+		</Entity>
+
+
+
+		<Entity name="Window" type="Window" fogOfWarVisibility="full">
+			<CollisionInfo type="static" flags="6"/>
+			<RenderObject2D texture="data/textures/environment/window.dds" layer="21" blendMode="none"/>
+			<Params breakDivisionSize="16" breakFX="ANIM_FX_WINDOW_BREAK">
+				<BrokenRenderObject2D texture="data/textures/environment/window_break.dds" layer="21" blendMode="none"/>
+			</Params>
+		</Entity>
+
+		<Entity name="WindowSmall" type="Window" fogOfWarVisibility="full">
+			<CollisionInfo type="static" flags="6"/>
+			<RenderObject2D texture="data/textures/environment/window_small.dds" layer="21" blendMode="normal"/>
+			<Params breakDivisionSize="16" breakFX="ANIM_FX_WINDOW_BREAK">
+				<BrokenRenderObject2D texture="data/textures/environment/window_small_break.dds" layer="21" blendMode="normal"/>
+			</Params>
+		</Entity>
+
+		<Entity name="WindowDouble" type="Window" fogOfWarVisibility="full">
+			<CollisionInfo type="static" flags="6"/>
+			<RenderObject2D texture="data/textures/environment/window_large.dds" layer="21" blendMode="none"/>
+			<Params breakDivisionSize="16" breakFX="ANIM_FX_WINDOW_BREAK">
+				<BrokenRenderObject2D texture="data/textures/environment/window_large_break.dds" layer="21" blendMode="none"/>
+			</Params>
+		</Entity>
+
+		<Entity name="WindowTriple" type="Window" fogOfWarVisibility="full">
+			<CollisionInfo type="static" flags="6"/>
+			<RenderObject2D texture="data/textures/environment/window_triple.dds" layer="21" blendMode="normal"/>
+			<Params breakDivisionSize="16" breakFX="ANIM_FX_WINDOW_BREAK">
+				<BrokenRenderObject2D texture="data/textures/environment/window_triple_break.dds" layer="21" blendMode="normal"/>
+			</Params>
+		</Entity>
+
+
+
+	<!-- /Doors -->
+
+<!-- SMALL MOVABLES -->
+	<Entity name="PlantSmall" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Plant2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Plant3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Plant4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Plant5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant5.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Plant6" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant6.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Plant7" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_plant7.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CofeeTable" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_cofee_table.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CofeeTableHotel" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_coffeetable.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableOcto" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tableocto.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableSquare" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tablesquare.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableRound" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tableround.png" layer="2"/>
+	</Entity>
+
+
+
+<!-- STATICS -->
+	<Entity name="TiresPile" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tires_pile.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="WoodPile" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_woodpile.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Jacuzzi" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_jacuzzi.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub04.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub05.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub6" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub06.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub7" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub07.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bathtub8" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bathtub08.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Sink" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_sink.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SinkDirty" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_sinkdirty.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SinkHotel" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_sink.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="WC" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_wc.png" layer="2"/>
+	</Entity>
+
+	<Entity name="WCDirty" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_wcdirty.png" layer="2"/>
+	</Entity>
+
+	<Entity name="WCHotel" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_wc.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Urinal" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_urinal.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Urinal2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_urinal02.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="ShowerCabin" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_shower_cabin.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Fridge" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_fridge.png" layer="2"/>
+	</Entity>
+
+	<Entity name="FridgeLarge" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_fridge02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableButcher" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/butcher_table.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounterDouble" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter_double.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounterCorner" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter_corner.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounterDoubleBlack" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter_bdouble.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounterCornerBlack" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter_bcorner.tga" layer="2"/>
+	</Entity>
+
+
+	<Entity name="KitchenCounterBar" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter3" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter4" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter04.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter5" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter05.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter6" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter06.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter7" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter07.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenCounter8" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchencounter08.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenSink" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchen_sink.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenSink2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchen_sink2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenSink3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchen_sink3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="KitchenSink4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_kitchen_sink4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Stove" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_stove.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoveCover" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_stove02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelDoubleBed" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelDoubleBedNew" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_hotel_doublebed.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelDoubleBed2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelDoubleBed3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed5.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed6" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed6.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed7" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed05.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed8" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed06.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed9" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed07.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed10" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed08.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed11" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed7.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed12" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed8.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DoubleBed13" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_doublebed9.png" layer="2"/>
+	</Entity>
+
+
+
+
+	<Entity name="SingleBed1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed5.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed6" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed6.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed7" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed7.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed8" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed8.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed9" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed9.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed10" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed10.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed11" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed11.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed12" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed12.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed13" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed13.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed14" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed14.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SingleBed15" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_singlebed15.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MRI" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_mri.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MedicalGurney" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_gurney.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SurgeryTable" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_surgerybed.png" layer="2"/>
+	</Entity>
+
+	<Entity name="XRayMachine" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/beds/obj_xray.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Nightstand" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_nightstand.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Nightstand2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_nightstand2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Nightstand3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_nightstand3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Nightstand4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_nightstand4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Roundtable" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_rountable.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BankReception" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bankreception.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CashierDesk" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_cashierdesk.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Squaretable4p" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_table_4p.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="Squaretable4p2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_table_4p_02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableDirty" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_table_dirty.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableLarge" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_table_large.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BossDesk" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_office_boss.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MassiveDesk" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_office_embassy.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelDesk" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_desk.png" layer="2"/>
+	</Entity>
+
+	<Entity name="FrontDeskLShape" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_desk_L.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreSecurityDoor" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_storesecuritydoor.png" layer="2"/>
+	</Entity>
+
+	<Entity name="DecorBush" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/plants/obj_decor.png" layer="2"/>
+	</Entity>
+
+	<Entity name="WaterFountain" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_waterfountain.png" layer="2"/>
+	</Entity>
+
+	<Entity name="PinballTable" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_pinball.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BarFront" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_bar.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BarFrontRail" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_bar2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="LongDesk" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_longdesk.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MetalTableGarage" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_metaltable_garage.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MetalTableGarage2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metaltable_garage2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Books" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_books.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TV" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_TV.png" layer="3"/>
+	</Entity>
+
+	<Entity name="BikeScooter" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_scooter01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="GlassTable" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_table1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CoatRack" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_coatrack.png" layer="4"/>
+	</Entity>
+
+	<Entity name="SingleTire" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tire.png" layer="2"/>
+	</Entity>
+
+<!-- BUS -->
+	<Entity name="BusDriverConsole" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_bus_console.png" layer="2"/>
+	</Entity>
+
+<!-- AIRCRAFT -->
+	<Entity name="AircraftChairPilot" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_pilot.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairCrew" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_crew.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairFirstClass1" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_firstclass.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairFirstClass2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_firstclass02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairEcono1" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_econo01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairEcono2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_econo02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairEcono3" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_econo03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftChairEcono4" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_chair_econo04.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftWCFront" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_wc_front.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftWCBack01" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_wc_back01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="AircraftWCBack02" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/aircraft/obj_wc_back02.png" layer="2"/>
+	</Entity>
+
+<!-- STORE OBJECTS -->
+
+	<Entity name="StoreCashierDesk" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_cashiersdesk.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreMagazineRack" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_magazinerack.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfSweets" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_sweets.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreFreezerDrink" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_drinkfreezer.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreFreezerIceCream" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_icecreamfreezer.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="StoreShelfApple" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_apple.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfBanana" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_banana.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfLettuce" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_lettuce.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfOnion" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_onion.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfOrange" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_orange.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfPotato" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_potato.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfTomato" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_tomato.png" layer="2"/>
+	</Entity>
+
+	<Entity name="StoreShelfWatermellon" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_shelf_watermellon.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="Box1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_cardboardbox1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Box2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_cardboardbox2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Box3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_cardboardbox3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Box4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_cardboardbox4.png" layer="2"/>
+	</Entity>
+
+
+
+	<Entity name="GarbageBinClosed" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_garbagebin_small.png" layer="2"/>
+	</Entity>
+
+	<Entity name="GarbageBinOpen" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_garbagebinO_small.png" layer="2"/>
+	</Entity>
+
+	<Entity name="GarbageBinLarge" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_garbagebin_large.png" layer="2"/>
+	</Entity>
+
+	<Entity name="GarbageBag1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_garbagebag1.png" layer="3"/>
+	</Entity>
+
+	<Entity name="GarbageBag2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_garbagebag2.png" layer="3"/>
+	</Entity>
+
+
+
+
+<!-- DECAL OBJECTS -->
+	<Entity name="RugBlue" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_blue.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugBlueNarrow" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_blue_narrow.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugRed" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_red.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugGreen" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_green.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugModel1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_model1.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugModel2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_model2.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugModel3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_model3.png" layer="1" blendMode="none"/>
+	</Entity>
+
+	<Entity name="RugSmall" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rug_small.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Rag1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag1.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Rag2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag2.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Rag3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag3.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Rag4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag4.png" layer="1"/>
+		</Entity>
+
+	<Entity name="Rag5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag5.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Rag6" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag6.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Rag7" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag7.png" layer="1"/>
+	</Entity>
+
+	<Entity name="DrainRound" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_drain_round.png" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="DrainSquare" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_drain_square.png" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="DrainSquareSmall" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_drain_small.png" layer="1" blendMode="normal"/>
+	</Entity>
+
+<!-- COVER OBJECTS -->
+	<Entity name="Sedan" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedanOut" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedanOutDamaged" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01_out_damaged.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedanOutShot" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01_out_shot.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Sedanb" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01b.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedanbOut" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01b_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedanbOutDamaged" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01b_out_damaged.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedanbOutShot" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01b_out_shot.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="Sedanc" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01c.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedancOut" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01c_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Sedand" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01d.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedandOut" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01d_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedandOutDamaged" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01d_out_damaged.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SedandOutShot" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01d_out_shot.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarMini" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_mini.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSedan" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2Out" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2b" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01b.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2bOut" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01b_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2c" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01c.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2cOut" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01c_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUVYellowAbandoned" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01c_out_abandoned.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2d" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01d.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUV2dOut" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01d_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarSUVBlack" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_suv01e.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="CarPickupTruck" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckOut" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckb" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01b.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckOutb" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01b_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckc" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01c.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckOutc" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01c_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckd" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01d.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarPickupTruckOutd" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_truck01d_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarFireTruck" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_fire_truck.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarFireEngine" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_fire_engine.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarFireEngine2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_fire_engine2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SchoolBus" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_schoolbus.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SportCar" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sportscar01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="SportCarOut" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sportscar01_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Sedan2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Sedan2Out" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan02_out.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="PoliceSedan1" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_policesedan01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="PoliceSedan1Out" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_policesedan01_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="PoliceSedan2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_policesedan02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="PoliceSedan2Out" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_policesedan02_out.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="CarConvertible" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_convertible01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CarConvertibleOut" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_convertible01_out.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BikeCruiser" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_bikecruiser01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bike1" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_bike01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bike2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_bike02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Chair1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Chair2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelChair1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelChair2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelChair3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelChair4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelChair5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair5.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelChair6" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair6.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="HotelChair7" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair7.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="HotelChair8" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_chair8.png" layer="2"/>
+	</Entity>
+
+	<Entity name="ChairWood" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair_wood.png" layer="2"/>
+	</Entity>
+
+	<Entity name="ChairPool" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair_pool.png" layer="2"/>
+	</Entity>
+
+	<Entity name="LongChair1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_longchair01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="LongChair2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_longchair02.png" layer="2"/>
+	</Entity>
+
+
+
+	<Entity name="Armchair" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_armchair.png" layer="2"/>
+	</Entity>
+
+	<Entity name="ArmchairOffice" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_armchair_office.png" layer="2"/>
+	</Entity>
+
+	<Entity name="ArmchairOfficeBlack" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_armchair_office_black.png" layer="2"/>
+	</Entity>
+
+	<Entity name="ArmchairOfficeBrown" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_armchair_office_brown.png" layer="2"/>
+	</Entity>
+
+	<Entity name="ArmchairOfficeGreen" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_armchair_office_green.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="Couch2p" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_2p.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Couch2p2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_2p2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Couch2p3" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_2p3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Couch2p4" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_2p4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Couch3p" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_3p.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CouchTorn" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_torn.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CouchCorner" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_corner.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CouchCorner2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_corner2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CouchChair" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotelCouch" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_couch.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bench01" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bench01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bench02" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bench02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Bench03" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bench03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BenchSport" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_sportbench.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BenchPress" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bench_press_table.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="OfficeDesk1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_officedesk1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="OfficeDesk2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_officedesk2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="OfficeDeskSterileBlack" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_officedesk01_black.png" layer="2"/>
+	</Entity>
+
+	<Entity name="OfficeDeskSterileBeige" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_officedesk01_beige.png" layer="2"/>
+	</Entity>
+
+	<Entity name="OfficeDeskSterileGrey" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_officedesk01_grey.png" layer="2"/>
+	</Entity>
+
+	<Entity name="OfficeDeskDirty" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_officedesk01_dirty.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CouchCornerBlack" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_corner_b.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CouchCorner2Black" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_corner2_b.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Couch3Black" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couch_3pb.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Container1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcontainer1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Container2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcontainer2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Container3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcontainer3.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Container4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcontainer4.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Container5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcontainer5.png" layer="2"/>
+	</Entity>
+
+<!-- Office Stuff -->
+	<Entity name="ATM" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_atm.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CopyMachine" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_copymachine.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="WaterCooler" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_watercooler.png" layer="2"/>
+	</Entity>
+
+	<Entity name="USFlags" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_flags01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CCTVCamera" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="0"/>
+		<RenderObject2D texture="data/textures/environment/obj_cctv01.png" layer="11"/>
+	</Entity>
+
+	<Entity name="CCTVCameraFlip" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="0"/>
+		<RenderObject2D texture="data/textures/environment/obj_cctv01.png" layer="11" flipX="true"/>
+	</Entity>
+
+
+	<Entity name="StreetLamp" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="0"/>
+		<RenderObject2D texture="data/textures/environment/obj_streetlamp.png" layer="11"/>
+	</Entity>
+
+	<Entity name="VacuumCleaner1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_vacuum01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="VacuumCleaner2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_vacuum02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="VacuumCleaner3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_vacuum03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MaidCart" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_maidcart.png" layer="2"/>
+	</Entity>
+
+	<Entity name="WhiteboardWall" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_whiteboard.png" layer="3"/>
+	</Entity>
+
+
+<!-- Cabinets and Lockers -->
+
+	<Entity name="CabinetSmall" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_cabinet_small.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CabinetSmall2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_cabinet_small2.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CabinetLong" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_cabinet_long.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CabinetLong2" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_cabinet_long02.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="CabinetTV" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_cabinet_TV.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Fireplace" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_fireplace.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MetalCabinetLong" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcabinet_long.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MetalCabinetMedium" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcabinet_medium.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MetalCabinetShort" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcabinet_short.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CupboardHotel" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_hotel_cupboard.png" layer="2"/>
+	</Entity>
+
+
+<!-- Barrels -->
+
+	<Entity name="Barrel01SquareSmall" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Barrel02Metal" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel02.png" layer="2"/>
+	</Entity>
+	<Entity name="Barrel03MetalSmall" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Barrel04MetalOld" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel04.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Barrel05MetalRusty" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel05.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Barrel06PlasticJug" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel06.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Barrel07Jerrycan" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel07.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Barrel08Square" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_barrel08.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Crate" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_crate.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Boxes" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_boxes.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Palet" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_palet.png" layer="1"/>
+	</Entity>
+
+	<Entity name="Pipe" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_pipe.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Tire01" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tire01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Tire02" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tire02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TireRim01" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_rim01.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TireRim02" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_rim02.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TireRim03" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_rim03.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TireRim04" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_rim04.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TireRim05" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_rim05.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Pool_HouseCall_Cut" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/Pool_JS_Housecall.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="BlackFireHose" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_black_hose.png" layer="2"/>
+	</Entity>
+
+	<Entity name="RedFireHose" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_red_hose.png" layer="2"/>
+	</Entity>
+
+	<Entity name="CilinderBlock" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_cilinderblock.png" layer="2"/>
+	</Entity>
+
+<!-- VARIOUS ENTITIES -->
+	<Entity name="RescueZone" type="RescueZone" fogOfWarVisibility="full" tooltip="Rescue Zone: Bring hostages here to rescue them" hidden="true">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/rescue_zone.dds" layer="1"/>
+	</Entity>
+
+	<Entity name="TimeBomb" type="TimeBomb" fogOfWarVisibility="hiddenInitially" tooltip="Time Bomb" explodeTimeSeconds="120" defuseTimeSeconds="20">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/time_bomb.tga" layer="3"/>
+	</Entity>
+
+	<Entity name="TimeBombTraining" type="TimeBomb" fogOfWarVisibility="full" tooltip="Time Bomb" explodeTimeSeconds="120" defuseTimeSeconds="20">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/time_bomb.tga" layer="3"/>
+	</Entity>
+
+
+<!-- LIGHTS -->
+	<Entity name="ActiveWindowLight1" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/active_window_light1.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="ActiveWindowLight2" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/active_window_light2.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight1" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight1b" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light1b.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight1c" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light1c.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight2" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light2.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight3" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light3.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight3b" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light3b.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight3c" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light3c.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight4" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light4.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight5" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light5.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="WindowLight6" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/window_light6.tga" layer="11" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="VilaNightFilter" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/night_filter_vila.tga" layer="11" scaleX="8" scaleY="8" blendMode="multiply"/>
+	</Entity>
+
+	<Entity name="DockNightFilter" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/night_filter_dockwarehouse.tga" layer="11" scaleX="8" scaleY="8" blendMode="multiply"/>
+	</Entity>
+
+	<Entity name="Spotlight" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/spotlight.tga" layer="11" blendMode="add"/>
+	</Entity>
+
+<!-- TUTORIAL TEXTS -->
+	<!-- type=RescueZone is intentional for reasons -->
+	<Entity name="TutorialText1" type="RescueZone" fogOfWarVisibility="hidden">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial1.tga" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="TutorialText2" type="RescueZone" fogOfWarVisibility="hidden">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial2.tga" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="TutorialText3" type="RescueZone" fogOfWarVisibility="hidden">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial3.tga" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="TutorialText4" type="RescueZone" fogOfWarVisibility="hidden">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial4.tga" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="TutorialText5" type="RescueZone" fogOfWarVisibility="hidden">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial5.tga" layer="1" blendMode="normal"/>
+	</Entity>
+
+	<Entity name="TutorialText6" type="RescueZone" fogOfWarVisibility="hidden">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial6.tga" layer="1" blendMode="normal"/>
+	</Entity>
+
+<!-- Other entity types -->
+	<Entity name="FlashbangBody" type="Grenade" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/grenadeBody_flashbang.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>
+
+	<Entity name="FlashbangTarget" type="GrenadeTarget" fogOfWarVisibility="hidden" tooltip="Flashbang target">
+		<RenderObject2D texture="data/textures/fx/crosshair_flashbang.tga" layer="31"/>
+		<Falloff>
+			<RenderObject2D texture="data/textures/fx/falloff_flashbang.tga" layer="32"/>
+		</Falloff>
+	</Entity>
+
+	<Entity name="StingerBody" type="Grenade" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/grenadeBody_stinger.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>
+
+	<Entity name="StingerTarget" type="GrenadeTarget" fogOfWarVisibility="hidden" tooltip="Stinger target">
+		<RenderObject2D texture="data/textures/fx/crosshair_stinger.tga" layer="31"/>
+		<Falloff>
+			<RenderObject2D texture="data/textures/fx/falloff_stinger.tga" sizeX="648" sizeY="648" layer="32"/>
+		</Falloff>
+	</Entity>
+
+	<Entity name="GrenadeShrapnel" type="GrenadeShrapnel" fogOfWarVisibility="full">
+		<RenderObject2D texture="data/textures/fx/grenade_shrapnel.tga" layer="11"/>
+	</Entity>
+
+	<Entity name="DeployZone" type="DeployZone" fogOfWarVisibility="full">
+		<RenderObject2D texture="data/textures/gui/deploy_screen/deployarea.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="ActionWaypoint" type="ActionWaypoint" fogOfWarVisibility="hidden">
+		<RenderObject2D texture="data/textures/fx/player_path_endpoint.tga" layer="31"/>
+	</Entity>
+
+	<Entity name="HiddenCollision" type="Static" fogOfWarVisibility="full" hidden="true">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/hidden_collision.tga" layer="3"/>
+	</Entity>
+
+	<Entity name="HiddenCollisionThin" type="Static" fogOfWarVisibility="full" hidden="true">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/hidden_collision.tga" layer="3" sizeX="128" sizeY="32"/>
+	</Entity>
+
+
+	<Entity name="BulletShell" type="BulletShell" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/fx/bullet_shell.tga" layer="2"/>
+	</Entity>
+
+	<Entity name="SpawnPoint_Assassin" type="SpawnPoint" fogOfWarVisibility="full" hidden="true">
+		<RenderObject2D texture="data/textures/editor/spawn_point.tga" layer="3"/>
+		<!--
+			spawnEntity = Spawns a single entity type, by name.
+			levelStartDelayTimeMsec = delay from start of the level until we start spawning stuff
+			spawnTimeMin/Max = time between consecutive spawns, calculated as a random value between min/max
+			numSpawns = maximum number of spawns, -1 for infinite
+		-->
+		<Parameters
+			spawnEntity="Enemy_HarryAssassin"
+			levelStartDelayTimeMsec="0"
+			spawnTimeMinMsec="5000"
+			spawnTimeMaxMsec="8000"
+			numSpawns="-1"
+		/>
+	</Entity>
+
+	<Entity name="SpawnPoint_OperatorAssassin" type="SpawnPoint" fogOfWarVisibility="full" hidden="true">
+		<RenderObject2D texture="data/textures/editor/spawn_point.tga" layer="3"/>
+		<!--
+			spawnEntity = Spawns a single entity type, by name.
+			levelStartDelayTimeMsec = delay from start of the level until we start spawning stuff
+			spawnTimeMin/Max = time between consecutive spawns, calculated as a random value between min/max
+			numSpawns = maximum number of spawns, -1 for infinite
+		-->
+		<Parameters
+			spawnEntity="Enemy_OperatorAssassin"
+			levelStartDelayTimeMsec="10000"
+			spawnTimeMinMsec="10000"
+			spawnTimeMaxMsec="16000"
+			numSpawns="1"
+		/>
+	</Entity>
+
+</Entities>
