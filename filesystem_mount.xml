@@ -1,24 +1,22 @@
 <!--
-REPLACING RESOURCES IN THE BASE GAME:
-When loading a file, the "data/" suffix for each filename is replaced with the path for each active mod ("data_mod1/", "data_mod2/" etc.).
-The first one that's found is loaded. If not found in a mod, it will fallback to the "data/" folder.
-This means that a mod can replace any file existent in the base "data/" folder.
-If two mods replace the same file, they are considered to be in conflict and cannot be used at the same time.
-
-ADDING EXTRA RESOURCES:
-To avoid conflicts, two mods should add extra resources using this xml.
-The "filesystem_mount.xml" is the only file that's searched and loaded from all active mods.
-
-Any resource file definition can be merged on top of the existing ones.
-Example:
-	<SoundDefinitions>
-		<MountFile name="data/sounds/my_soundsdef.xml"> (make sure to use a different name for the existing xml, therefore avoiding conflicts)
-	</SoundDefinitions>
-
--->
+ | Code authored by: Tom 'Red Panda' Richardson
+ | Steam Profile: http://steamcommunity.com/id/WinkyFacePanda/
+ | 
+  |Code authored by: Splash Friday
+ | Steam Profile: http://steamcommunity.com/id/splashfriday/
+ | 
+ | Edited by: RedShadow
+ | Steam Profile: http://steamcommunity.com/id/RedKage/
+ |-->
 
 <filesystem_mount>
 	<ObjectLibrary>
+		<MountFile name="data/object_library/extragear_animations.xml"/>
+		<MountFile name="data/object_library/extragear_explosive.xml"/>
+		<MountFile name="data/object_library/extragear_guns.xml"/>
+		<MountFile name="data/object_library/extragear_items.xml"/>
+		<MountFile name="data/object_library/extragear_entities_various.xml"/>
+		<MountFile name="data/object_library/extragear_decals.xml"/>
 	</ObjectLibrary>
 
 	<Maps>
@@ -26,10 +24,15 @@ Example:
 
 	<RandomMaps>
 	</RandomMaps>
-	
+
 	<Sounds>
+		<MountFile name="data/object_library/extragear_sounds.xml"/>
 	</Sounds>
 
 	<GUI>
 	</GUI>
 </filesystem_mount>
+
+
+
+

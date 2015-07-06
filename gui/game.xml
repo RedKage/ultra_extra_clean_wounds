@@ -1,0 +1,1895 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+
+<EventActionBatch name="GAME_GUI_DISABLE_DOOR_CAMERA">
+	<GUIAction type="Hide" target="ContextMenu_UnlockedDoor_Camera"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Camera"/>
+	<GUIAction type="Show" target="ContextMenu_UnlockedDoor_Camera_Disabled"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_Camera_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_DOOR_CAMERA">
+	<GUIAction type="Show" target="ContextMenu_UnlockedDoor_Camera"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_Camera"/>
+	<GUIAction type="Hide" target="ContextMenu_UnlockedDoor_Camera_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Camera_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_DETONATION">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Charge_Detonate"/>
+	<GUIAction type="Hide" target="ContextMenu_UnlockedDoor_Charge_Detonate"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_DETONATION">
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_Charge_Detonate"/>
+	<GUIAction type="Show" target="ContextMenu_UnlockedDoor_Charge_Detonate"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_WAYPOINT_DELETE">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_CancelAction"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_CancelAction_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_WAYPOINT_DELETE">
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_CancelAction"/>
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_CancelAction_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_SWITCH_WEAPONS">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchWeapons"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchWeapons_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_SWITCH_WEAPONS">
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchWeapons"/>
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchWeapons_Disabled"/>
+</EventActionBatch>
+
+<!--
+<EventActionBatch name="GAME_GUI_ENABLE_PISTOL_SWITCH">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchToPistol"/>
+
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToShotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_PISTOL_SWITCH">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchToPistol_Disabled"/>
+
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToShotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_RIFLE_SWITCH">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchToRifle"/>
+
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToShotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_RIFLE_SWITCH">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchToRifle_Disabled"/>
+
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToShotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_SHOTGUN_SWITCH">
+	<GUIAction type="Show" target="ContextMenu_PlayerUnit_SwitchToShotgun"/>
+
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToPistol_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_PlayerUnit_SwitchToRifle_Disabled"/>
+</EventActionBatch>
+-->
+
+<!--
+<EventActionBatch name="GAME_GUI_ENABLE_SNIPER_HOLD_FIRE">
+	<GUIAction type="Show" target="ContextMenu_Sniper_HoldFire"/>
+	<GUIAction type="Hide" target="ContextMenu_Sniper_FireAtWill"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_SNIPER_FIRE_AT_WILL">
+	<GUIAction type="Hide" target="ContextMenu_Sniper_HoldFire"/>
+	<GUIAction type="Show" target="ContextMenu_Sniper_FireAtWill"/>
+</EventActionBatch>
+-->
+
+<EventActionBatch name="GAME_GUI_ENABLE_CROWBAR_BREACH">
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_Crowbar"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Shotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_DynamicHammer"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_CROWBAR_BREACH">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Shotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_DynamicHammer"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter_Disabled"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_Crowbar_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_SHOTGUN_BREACH">
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_Shotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_DynamicHammer"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter_Disabled"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_DYNAMICHAMMER_BREACH">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Shotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter_Disabled"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_DynamicHammer"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_BOLTCUTTER_BREACH">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Shotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_DynamicHammer"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter_Disabled"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_BoltCutter"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_BOLTCUTTER_BREACH">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Shotgun"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_Crowbar_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_DynamicHammer"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_BoltCutter_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_BoltCutter"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_LOCKPICK_MACHINE">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_PickLock"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_PickLock_Disabled"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_LockpickMachine"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_LOCKPICK">
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_PickLock"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_PickLock_Disabled"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_LockpickMachine"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_DISABLE_LOCKPICK">
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_PickLock"/>
+	<GUIAction type="Hide" target="ContextMenu_LockedDoor_LockpickMachine"/>
+	<GUIAction type="Show" target="ContextMenu_LockedDoor_PickLock_Disabled"/>
+</EventActionBatch>
+
+<!--
+<EventActionBatch name="GAME_GUI_HIDE_ALL_GOCODES">
+	<GUIAction type="Hide" target="GoCodes_Player"/>
+	<GUIAction type="Hide" target="GoCodes_Door"/>
+	<GUIAction type="Hide" target="GoCodes_DoorLocked"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_SHOW_ALL_GOCODES">
+	<GUIAction type="Show" target="GoCodes_Player"/>
+	<GUIAction type="Show" target="GoCodes_Door"/>
+	<GUIAction type="Show" target="GoCodes_DoorLocked"/>
+</EventActionBatch>
+-->
+
+<EventActionBatch name="GAME_GUI_UNCHECK_ALL_GOCODES">
+	<GUIAction type="Show" target="GoCodeA_Unchecked"/>
+	<GUIAction type="Show" target="GoCodeA_Unchecked_Door"/>
+	<GUIAction type="Show" target="GoCodeA_Unchecked_DoorLocked"/>
+	<GUIAction type="Hide" target="GoCodeA_Checked"/>
+	<GUIAction type="Hide" target="GoCodeA_Checked_Door"/>
+	<GUIAction type="Hide" target="GoCodeA_Checked_DoorLocked"/>
+
+	<GUIAction type="Show" target="GoCodeB_Unchecked"/>
+	<GUIAction type="Show" target="GoCodeB_Unchecked_Door"/>
+	<GUIAction type="Show" target="GoCodeB_Unchecked_DoorLocked"/>
+	<GUIAction type="Hide" target="GoCodeB_Checked"/>
+	<GUIAction type="Hide" target="GoCodeB_Checked_Door"/>
+	<GUIAction type="Hide" target="GoCodeB_Checked_DoorLocked"/>
+
+	<GUIAction type="Show" target="GoCodeC_Unchecked"/>
+	<GUIAction type="Show" target="GoCodeC_Unchecked_Door"/>
+	<GUIAction type="Show" target="GoCodeC_Unchecked_DoorLocked"/>
+	<GUIAction type="Hide" target="GoCodeC_Checked"/>
+	<GUIAction type="Hide" target="GoCodeC_Checked_Door"/>
+	<GUIAction type="Hide" target="GoCodeC_Checked_DoorLocked"/>
+
+	<GUIAction type="Show" target="GoCodeD_Unchecked"/>
+	<GUIAction type="Show" target="GoCodeD_Unchecked_Door"/>
+	<GUIAction type="Show" target="GoCodeD_Unchecked_DoorLocked"/>
+	<GUIAction type="Hide" target="GoCodeD_Checked"/>
+	<GUIAction type="Hide" target="GoCodeD_Checked_Door"/>
+	<GUIAction type="Hide" target="GoCodeD_Checked_DoorLocked"/>
+
+	<GUIAction type="Uncheck_WithoutActions" target="GoCode_WaitForClear"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_CHECK_GOCODE_A">
+	<GUIAction type="Hide" target="GoCodeA_Unchecked"/>
+	<GUIAction type="Hide" target="GoCodeA_Unchecked_Door"/>
+	<GUIAction type="Hide" target="GoCodeA_Unchecked_DoorLocked"/>
+	<GUIAction type="Show" target="GoCodeA_Checked"/>
+	<GUIAction type="Show" target="GoCodeA_Checked_Door"/>
+	<GUIAction type="Show" target="GoCodeA_Checked_DoorLocked"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_CHECK_GOCODE_B">
+	<GUIAction type="Hide" target="GoCodeB_Unchecked"/>
+	<GUIAction type="Hide" target="GoCodeB_Unchecked_Door"/>
+	<GUIAction type="Hide" target="GoCodeB_Unchecked_DoorLocked"/>
+	<GUIAction type="Show" target="GoCodeB_Checked"/>
+	<GUIAction type="Show" target="GoCodeB_Checked_Door"/>
+	<GUIAction type="Show" target="GoCodeB_Checked_DoorLocked"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_CHECK_GOCODE_C">
+	<GUIAction type="Hide" target="GoCodeC_Unchecked"/>
+	<GUIAction type="Hide" target="GoCodeC_Unchecked_Door"/>
+	<GUIAction type="Hide" target="GoCodeC_Unchecked_DoorLocked"/>
+	<GUIAction type="Show" target="GoCodeC_Checked"/>
+	<GUIAction type="Show" target="GoCodeC_Checked_Door"/>
+	<GUIAction type="Show" target="GoCodeC_Checked_DoorLocked"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_CHECK_GOCODE_D">
+	<GUIAction type="Hide" target="GoCodeD_Unchecked"/>
+	<GUIAction type="Hide" target="GoCodeD_Unchecked_Door"/>
+	<GUIAction type="Hide" target="GoCodeD_Unchecked_DoorLocked"/>
+	<GUIAction type="Show" target="GoCodeD_Checked"/>
+	<GUIAction type="Show" target="GoCodeD_Checked_Door"/>
+	<GUIAction type="Show" target="GoCodeD_Checked_DoorLocked"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_CHECK_GOCODE_WAIT_FOR_CLEAR">
+	<GUIAction type="Check_WithoutActions" target="GoCode_WaitForClear"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_GOTO_NEXT_STOREY">
+	<GUIAction type="Hide" target="#ContextMenu_StoreySwitcher_PrevStorey"/>
+	<GUIAction type="Show" target="#ContextMenu_StoreySwitcher_NextStorey"/>
+</EventActionBatch>
+
+<EventActionBatch name="GAME_GUI_ENABLE_GOTO_PREV_STOREY">
+	<GUIAction type="Show" target="#ContextMenu_StoreySwitcher_PrevStorey"/>
+	<GUIAction type="Hide" target="#ContextMenu_StoreySwitcher_NextStorey"/>
+</EventActionBatch>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="#ContextMenu_Door_UtilityItems" hidden="true">
+
+<!-- GEAR MOD ITEMS -->
+	<Checkbox name="HE Breach Charge" defaultState="UncheckedState">
+		<UncheckedState tooltip="Plant HE breaching charges">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState name="ContextMenu_UnlockedDoor_Charge_Disabled" acceptInput="false" tooltip="Breaching charges not equipped">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+	
+		<Checkbox name="LTL Breach Charge" defaultState="UncheckedState">
+		<UncheckedState tooltip="Plant LTL Breach Charges">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState name="ContextMenu_UnlockedDoor_Charge_Disabled" acceptInput="false" tooltip="Breaching charges not equipped">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+	
+	<Checkbox name="Glow Stick" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw a glow stick">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of glow sticks" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>	
+	
+	<Checkbox name="M26 Frag" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw a Frag grenade">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of Frag grenades" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>	
+	
+	<Checkbox name="CS Gas" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw a CS grenade" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of CS grenades" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>	
+	
+	
+	
+
+<!-- GEAR MOD ITEMS -->
+
+
+
+
+
+
+
+
+
+	<Checkbox name="Flashbang" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw flashbang" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of flashbangs" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<Checkbox name="Stinger" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw stinger grenade" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of stinger grenades" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<Checkbox name="Breaching Charge" defaultState="UncheckedState">
+		<UncheckedState tooltip="Plant breaching charges" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState name="ContextMenu_UnlockedDoor_Charge_Disabled" acceptInput="false" tooltip="Breaching charges not equipped" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<StaticImage name="#Empty" tooltip="Utility pouch not equipped" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_empty.tga"/>
+	</StaticImage>
+</Item>
+
+<Item name="ContextMenu_UnlockedDoor" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button name="ContextMenu_UnlockedDoor_Cancel" origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_UnlockedDoor_Open" origin="-68 8" tooltip="Kick door" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_dooropen_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_dooropen_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_dooropen_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_OPEN"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_UnlockedDoor_Camera" origin="-28 48" tooltip="Use spy camera" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_camera_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_camera_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_camera_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_USE_MIRROR"/>
+		</OnClick>
+	</Button>
+
+	<StaticImage name="ContextMenu_UnlockedDoor_Camera_Disabled" origin="-28 48" tooltip="You don't have a camera" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_camera_disabled.tga"/>
+	</StaticImage>
+
+	<!-- items from #ContextMenu_Door_UtilityItems are dynamically added here -->
+	<Item name="#UtilityPouch1" origin="28 48">
+	</Item>
+
+	<Item name="#UtilityPouch2" origin="68 8">
+	</Item>
+
+	<Button name="ContextMenu_UnlockedDoor_Charge_Detonate" origin="68 8" tooltip="Detonate breaching charge" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_detonate_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_detonate_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_detonate_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_BREACH_DETONATE"/>
+		</OnClick>
+	</Button>
+
+	<Item name="GoCodes_Door" origin="-57 -42">
+		<Button name="GoCodeA_Unchecked_Door" origin="0 0" tooltip="Wait for Go Code Alpha">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_01.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_02.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeA_Unchecked_Door"/>
+				<GUIAction type="Show" target="GoCodeA_Checked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_A_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeA_Checked_Door" origin="0 0" tooltip="Wait for Go Code Alpha" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_03.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_04.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeA_Checked_Door"/>
+				<GUIAction type="Show" target="GoCodeA_Unchecked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_A_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeB_Unchecked_Door" origin="38 0" tooltip="Wait for Go Code Bravo">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_01.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_02.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeB_Unchecked_Door"/>
+				<GUIAction type="Show" target="GoCodeB_Checked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_B_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeB_Checked_Door" origin="38 0" tooltip="Wait for Go Code Bravo" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_03.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_04.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeB_Checked_Door"/>
+				<GUIAction type="Show" target="GoCodeB_Unchecked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_B_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeC_Unchecked_Door" origin="76 0" tooltip="Wait for Go Code Charlie">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_01.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_02.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeC_Unchecked_Door"/>
+				<GUIAction type="Show" target="GoCodeC_Checked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_C_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeC_Checked_Door" origin="76 0" tooltip="Wait for Go Code Charlie" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_03.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_04.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeC_Checked_Door"/>
+				<GUIAction type="Show" target="GoCodeC_Unchecked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_C_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeD_Unchecked_Door" origin="114 0" tooltip="Wait for Go Code Delta">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_01.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_02.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeD_Unchecked_Door"/>
+				<GUIAction type="Show" target="GoCodeD_Checked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_D_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeD_Checked_Door" origin="114 0" tooltip="Wait for Go Code Delta" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_03.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_04.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeD_Checked_Door"/>
+				<GUIAction type="Show" target="GoCodeD_Unchecked_Door"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_D_UNCHECKED"/>
+			</OnClick>
+		</Button>
+	</Item>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="ContextMenu_LockedDoor" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button name="ContextMenu_LockedDoor_Cancel" origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_LockedDoor_Shotgun" origin="-68 8" tooltip="Shotgun breach" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_shgun_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_shgun_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_shgun_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_BREACH_SHOTGUN"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_LockedDoor_DynamicHammer" origin="-68 8" tooltip="Dynamic hammer breach" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_dynamichammer_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_dynamichammer_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_dynamichammer_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_BREACH_DYNAMICHAMMER"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_LockedDoor_BoltCutter" origin="-68 8" tooltip="Cut the padlock" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_boltcutter_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_boltcutter_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_boltcutter_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_BREACH_BOLTCUTTER"/>
+		</OnClick>
+	</Button>
+
+	<StaticImage name="ContextMenu_LockedDoor_BoltCutter_Disabled" origin="-68 8" tooltip="You don't have a bolt cutter" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_boltcutter_disabled.tga"/>
+	</StaticImage>
+
+	<Button name="ContextMenu_LockedDoor_Crowbar" origin="-68 8" tooltip="Manual breach" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_manual_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_manual_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_manual_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_BREACH_CROWBAR"/>
+		</OnClick>
+	</Button>
+
+	<StaticImage name="ContextMenu_LockedDoor_Crowbar_Disabled" origin="-68 8" tooltip="You either don't have a crowbar or this door cannot be breached with this tool" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_manual_disabled.tga"/>
+	</StaticImage>
+
+	<Button name="ContextMenu_LockedDoor_Camera" origin="-28 48" tooltip="Use spy camera" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_camera_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_camera_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_camera_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_USE_MIRROR"/>
+		</OnClick>
+	</Button>
+
+	<StaticImage name="ContextMenu_LockedDoor_Camera_Disabled" origin="-28 48" tooltip="You either don't have a camera or it can't be used on this door" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_camera_disabled.tga"/>
+	</StaticImage>
+
+	<Button name="ContextMenu_LockedDoor_PickLock" origin="28 48" tooltip="Pick lock" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_lockpick_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_lockpick_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_lockpick_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_PICK_LOCK"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_LockedDoor_LockpickMachine" origin="28 48" tooltip="Pick lock" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_lockpickmachine_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_lockpickmachine_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_lockpickmachine_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_LOCKPICK_MACHINE"/>
+		</OnClick>
+	</Button>
+
+	<StaticImage name="ContextMenu_LockedDoor_PickLock_Disabled" origin="28 48" tooltip="Cannot pick the lock." hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_lockpick_disabled.tga"/>
+	</StaticImage>
+
+	<StaticImage name="ContextMenu_LockedDoor_Charge_Disabled" origin="68 8" tooltip="Out of breaching charges" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+	</StaticImage>
+
+	<!-- items from #ContextMenu_Door_UtilityItems are dynamically added here -->
+	<!-- only breaching charges will be added for locked doors -->
+	<Item name="#UtilityPouch1" origin="68 8">
+	</Item>
+	<Item name="#UtilityPouch2" origin="68 8">
+	</Item>
+
+	<Button name="ContextMenu_LockedDoor_Charge_Detonate" origin="68 8" tooltip="Detonate breaching charge" hidden="true" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_detonate_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_detonate_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_detonate_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_DOOR_BREACH_DETONATE"/>
+		</OnClick>
+	</Button>
+
+	<Item name="GoCodes_DoorLocked" origin="-56 -42">
+		<Button name="GoCodeA_Unchecked_DoorLocked" origin="0 0" tooltip="Wait for Go Code Alpha">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_01.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_02.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeA_Unchecked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeA_Checked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_A_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeA_Checked_DoorLocked" origin="0 0" tooltip="Wait for Go Code Alpha" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_03.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_04.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeA_Checked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeA_Unchecked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_A_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeB_Unchecked_DoorLocked" origin="38 0" tooltip="Wait for Go Code Bravo">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_01.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_02.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeB_Unchecked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeB_Checked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_B_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeB_Checked_DoorLocked" origin="38 0" tooltip="Wait for Go Code Bravo" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_03.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_04.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeB_Checked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeB_Unchecked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_B_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeC_Unchecked_DoorLocked" origin="76 0" tooltip="Wait for Go Code Charlie">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_01.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_02.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeC_Unchecked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeC_Checked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_C_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeC_Checked_DoorLocked" origin="76 0" tooltip="Wait for Go Code Charlie" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_03.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_04.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeC_Checked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeC_Unchecked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_C_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeD_Unchecked_DoorLocked" origin="114 0" tooltip="Wait for Go Code Delta">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_01.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_02.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeD_Unchecked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeD_Checked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_D_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeD_Checked_DoorLocked" origin="114 0" tooltip="Wait for Go Code Delta" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_03.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_04.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeD_Checked_DoorLocked"/>
+				<GUIAction type="Show" target="GoCodeD_Unchecked_DoorLocked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_D_UNCHECKED"/>
+			</OnClick>
+		</Button>
+	</Item>
+</Item>
+
+<!--
+-sliderType can be "circular" or "linear"
+-integerValues can be "true" or "false", where in "false" the slider can have floating point values
+-for circular sliders, sizeX should be the same as sizeY (or the BackgroundGraphics render object should have x==y)
+-start/end values represent degrees on a circle and should be in the range of (0 - 360)
+-BackgroundGraphics is an optional static image. For circular sliders it should be a circle, the control button will be placed on the outer bounds of the circle.
+-ButtonGraphics is the same as a normal button, with 3 reprezentations: normal/on hover/on clicked
+ -->
+<Slider name="ContextMenu_MirrorSlider" origin="0 0" tooltip="Drag to orientate camera" hidden="true"
+			sliderType="circular" startValue="" endValue="" integerValues="true">
+
+	<BackgroundGraphics>
+		<RenderObject2D texture="data/textures/gui/contextual/mirror_control_slider_background.tga"/>
+	</BackgroundGraphics>
+
+	<ButtonGraphics>
+		<RenderObject2D texture="data/textures/gui/contextual/mirror_control_slider.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/mirror_control_slider_pushed.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/mirror_control_slider_pushed.tga"/>
+		</OnClick>
+	</ButtonGraphics>
+
+	<OnCursorMove>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_HIDDEN_CAMERA_MOVED"/>
+	</OnCursorMove>
+</Slider>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="ContextMenu_Hostage" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button name="ContextMenu_Hostage_Cancel" origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Hostage"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_Hostage_Secure" origin="-32 40" tooltip="Order Hostage">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_secure_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_secure_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_secure_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Hostage"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_HOSTAGE_SECURE"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_Hostage_CancelAction" origin="32 40" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Hostage"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL_ACTION"/>
+		</OnClick>
+	</Button>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="ContextMenu_Arrest" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Arrest"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="-32 40" tooltip="Arrest">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cuffs_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cuffs_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cuffs_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Arrest"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_ARREST_ENEMY"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="32 40" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Arrest"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL_ACTION"/>
+		</OnClick>
+	</Button>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="ContextMenu_Timebomb" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button name="ContextMenu_Timebomb_Cancel" origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Timebomb"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_Timebomb_Defuse" origin="-32 40" tooltip="Defuse Bomb">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_disarm_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_disarm_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_disarm_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Timebomb"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_TIMEBOMB_DEFUSE"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_Timebomb_CancelAction" origin="32 40" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Timebomb"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL_ACTION"/>
+		</OnClick>
+	</Button>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="ContextMenu_Dope" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Dope"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="-32 40" tooltip="Retrieve evidence">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_pick_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_pick_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_pick_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Dope"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RETRIEVE_EVIDENCE"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="32 40" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Dope"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL_ACTION"/>
+		</OnClick>
+	</Button>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- these are copied where they are needed -->
+<Item name="#ContextMenu_PlayerUnit_UtilityItems" hidden="true">
+
+<!-- GEAR MOD  -->
+	<Checkbox name="P239" defaultState="UncheckedState">
+		<UncheckedState tooltip="Equip P239">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="P239 already equipped" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+	
+	<Checkbox name="P239-SD" defaultState="UncheckedState">
+		<UncheckedState tooltip="Equip P239-SD">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="P239-SD already equipped" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>	
+	
+	
+	<Checkbox name="M37" defaultState="UncheckedState">
+		<UncheckedState tooltip="Equip M37">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgunbug_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgunbug_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgunbug_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="M37 already equipped" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgunbug_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<StaticImage name="Breaching charge" tooltip="Breaching charges can only be used on a door">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+	</StaticImage>
+	
+	<StaticImage name="HE Breach Charge" tooltip="Breaching charges can only be used on a door">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+	</StaticImage>
+	
+	<StaticImage name="LTL Breach Charge" tooltip="Breaching charges can only be used on a door">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+	</StaticImage>
+	
+	<Checkbox name="M26 Frag" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw a Frag grenade">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of Frag grenades" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+	
+	<Checkbox name="CS Gas" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw a CS grenade" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of CS grenades" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+	
+	<Checkbox name="Glow Stick" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw a glow stick">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of glow sticks" acceptInput="false">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>	
+<!-- GEAR MOD  -->
+
+
+
+
+
+
+
+
+	<Checkbox name="Flashbang" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw flashbang" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of flashbangs" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<Checkbox name="Stinger" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw stinger grenade" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of stinger grenades" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<Checkbox name="Tazer" defaultState="UncheckedState">
+		<UncheckedState tooltip="Equip tazer" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_tazer_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_tazer_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_tazer_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Tazer already equipped" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_tazer_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<StaticImage name="Breaching Charge" tooltip="Breaching charges can only be used on doors" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
+	</StaticImage>
+
+	<StaticImage name="Lockpick machine" tooltip="Lockpicking machines can only be used on locked doors" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_lockpickmachine_disabled.tga"/>
+	</StaticImage>
+
+	<StaticImage name="#Empty" tooltip="Utility pouch not equipped" sizeX="52" sizeY="52">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_empty.tga"/>
+	</StaticImage>
+</Item>
+
+<Item name="ContextMenu_PlayerUnit" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button name="ContextMenu_PlayerUnit_Cancel" origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Item name="ContextMenu_PlayerUnit_5Options">
+		<Button name="ContextMenu_PlayerUnit_Reload" origin="-78 -8" tooltip="Reload Weapon" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_reload_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_reload_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_reload_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_FIREARM_RELOAD"/>
+			</OnClick>
+		</Button>
+
+		<Button name="ContextMenu_PlayerUnit_SwitchWeapons" origin="-52 40" tooltip="Change between primary/secondary weapon" hidden="true" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_SWITCH_WEAPONS"/>
+			</OnClick>
+		</Button>
+
+		<StaticImage name="ContextMenu_PlayerUnit_SwitchWeapons_Disabled" origin="-52 40" tooltip="No secondary weapon equipped" hidden="true" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_disabled.tga"/>
+		</StaticImage>
+		<!--
+		<Button name="ContextMenu_PlayerUnit_SwitchToPistol" origin="-52 40" tooltip="Change Weapon to Sidearm" hidden="true" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistol_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistol_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistol_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_SWITCH_TO_PISTOL"/>
+			</OnClick>
+		</Button>
+
+		<StaticImage name="ContextMenu_PlayerUnit_SwitchToPistol_Disabled" origin="-52 40" tooltip="Sidearm not available" hidden="true" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistol_disabled.tga"/>
+		</StaticImage>
+
+		<Button name="ContextMenu_PlayerUnit_SwitchToRifle" origin="-52 40" tooltip="Change Weapon to Primary" hidden="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_rifle_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_rifle_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_rifle_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_SWITCH_TO_RIFLE"/>
+			</OnClick>
+		</Button>
+
+		<StaticImage name="ContextMenu_PlayerUnit_SwitchToRifle_Disabled" origin="-52 40" tooltip="Primary not available" hidden="true" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_rifle_disabled.tga"/>
+		</StaticImage>
+
+		<Button name="ContextMenu_PlayerUnit_SwitchToShotgun" origin="-52 40" tooltip="Change Weapon to Primary" hidden="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgun_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgun_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgun_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_SWITCH_TO_SHOTGUN"/>
+			</OnClick>
+		</Button>
+		-->
+
+		<!-- items from #ContextMenu_PlayerUnit_UtilityItems are dynamically added here -->
+		<Item name="#UtilityPouch1" origin="0 58">
+		</Item>
+
+		<Item name="#UtilityPouch2" origin="52 40">
+		</Item>
+
+		<Button name="ContextMenu_PlayerUnit_CancelAction" origin="78 -8" tooltip="Delete waypoint" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL_ACTION"/>
+			</OnClick>
+		</Button>
+
+		<StaticImage name="ContextMenu_PlayerUnit_CancelAction_Disabled" origin="78 -8" tooltip="Delete waypoint" hidden="true" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_disabled.tga"/>
+		</StaticImage>
+	</Item>
+
+	<Item name="GoCodes_Player" origin="-76 -56">
+		<Checkbox name="GoCode_WaitForClear" origin="0 0" defaultState="UncheckedState">
+			<UncheckedState tooltip="Wait for clear: don't move until there are no more tangos in sight">
+				<RenderObject2D texture="data/textures/gui/contextual/icon_waitforclear_01.tga"/>
+				<OnHover>
+					<RenderObject2D texture="data/textures/gui/contextual/icon_waitforclear_02.tga"/>
+				</OnHover>
+				<OnClick>
+					<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+					<RenderObject2D texture="data/textures/gui/contextual/icon_waitforclear_01.tga"/>
+					<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+					<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_WAIT_FOR_CLEAR_CHECKED"/>
+				</OnClick>
+			</UncheckedState>
+			<CheckedState tooltip="Wait for clear before proceeding">
+				<RenderObject2D texture="data/textures/gui/contextual/icon_waitforclear_03.tga"/>
+				<OnHover>
+					<RenderObject2D texture="data/textures/gui/contextual/icon_waitforclear_04.tga"/>
+				</OnHover>
+				<OnClick>
+					<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+					<RenderObject2D texture="data/textures/gui/contextual/icon_waitforclear_03.tga"/>
+					<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+					<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_WAIT_FOR_CLEAR_UNCHECKED"/>
+				</OnClick>
+			</CheckedState>
+		</Checkbox>
+
+		<!-- todo: make these Checkboxes -->
+		<Button name="GoCodeA_Unchecked" origin="38 0" tooltip="Wait for Go Code Alpha">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_01.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_02.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeA_Unchecked"/>
+				<GUIAction type="Show" target="GoCodeA_Checked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_A_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeA_Checked" origin="38 0" tooltip="Wait for Go Code Alpha" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_03.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_04.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_a_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeA_Checked"/>
+				<GUIAction type="Show" target="GoCodeA_Unchecked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_A_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeB_Unchecked" origin="76 0" tooltip="Wait for Go Code Bravo">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_01.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_02.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeB_Unchecked"/>
+				<GUIAction type="Show" target="GoCodeB_Checked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_B_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeB_Checked" origin="76 0" tooltip="Wait for Go Code Bravo" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_03.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_04.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_b_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeB_Checked"/>
+				<GUIAction type="Show" target="GoCodeB_Unchecked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_B_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeC_Unchecked" origin="114 0" tooltip="Wait for Go Code Charlie">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_01.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_02.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeC_Unchecked"/>
+				<GUIAction type="Show" target="GoCodeC_Checked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_C_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeC_Checked" origin="114 0" tooltip="Wait for Go Code Charlie" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_03.tga"/>
+
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_04.tga"/>
+			</OnHover>
+
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_c_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeC_Checked"/>
+				<GUIAction type="Show" target="GoCodeC_Unchecked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_C_UNCHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeD_Unchecked" origin="152 0" tooltip="Wait for Go Code Delta">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_01.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_02.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_03.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- checking -->
+				<GUIAction type="Hide" target="GoCodeD_Unchecked"/>
+				<GUIAction type="Show" target="GoCodeD_Checked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_D_CHECKED"/>
+			</OnClick>
+		</Button>
+
+		<Button name="GoCodeD_Checked" origin="152 0" tooltip="Wait for Go Code Delta" hidden="true">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_03.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_04.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_gocode_d_01.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_PlayerUnit"/>
+
+				<!-- unchecking -->
+				<GUIAction type="Hide" target="GoCodeD_Checked"/>
+				<GUIAction type="Show" target="GoCodeD_Unchecked"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_PLAYER_GOCODE_D_UNCHECKED"/>
+			</OnClick>
+		</Button>
+	</Item>
+</Item>
+
+<Button name="#SilentROE_Shoot" origin="600 600" tooltip="Fire! (F)" hidden="true">
+	<RenderObject2D texture="data/textures/gui/contextual/engage_button.tga">
+		<TextureAnimation frameWidth="36" frameHeight="36" startFrame="0" endFrame="1" animationTimeMS="1500" numLoops="-1"/>
+	</RenderObject2D>
+	<OnHover>
+		<RenderObject2D texture="data/textures/gui/contextual/engage_button_uphover.tga"/>
+	</OnHover>
+	<OnClick>
+		<RenderObject2D texture="data/textures/gui/contextual/engage_button_downhover.tga"/>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_SILENT_ROE_SHOOT"/>
+		<GUIAction type="Hide" target="#SilentROE_Shoot"/>
+	</OnClick>
+</Button>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
+<Item name="ContextMenu_StoreySwitcher" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_StoreySwitcher"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button name="#ContextMenu_StoreySwitcher_PrevStorey" origin="-32 40" tooltip="Go to the lower level (everyone within 4 meters of you will come along)" hidden="true">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_down_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_down_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_down_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_StoreySwitcher"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_GOTO_PREV_STOREY"/>
+		</OnClick>
+	</Button>
+
+ 	<Button name="#ContextMenu_StoreySwitcher_NextStorey" origin="-32 40" tooltip="Go to the upper level (everyone within 4 meters of you will come along)">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_up_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_up_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_up_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_StoreySwitcher"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_GOTO_NEXT_STOREY"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="32 40" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_hover.tga"/>
+		</OnHover>
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_deletewaypoint_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_StoreySwitcher"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL_ACTION"/>
+		</OnClick>
+	</Button>
+</Item>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+<!--
+<Item name="ContextMenu_Sniper" origin="0 0" hidden="true">
+	<OnOpen>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_PAUSE"/>
+	</OnOpen>
+
+	<OnClose>
+		<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_HIDE"/>
+	</OnClose>
+
+	<Button origin="0 0" tooltip="Close">
+		<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/icon_cancel_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Sniper"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_CONTEXTUAL_CANCEL"/>
+		</OnClick>
+	</Button>
+
+	<Button origin="-28 48" tooltip="Next target">
+		<RenderObject2D texture="data/textures/gui/contextual/sniper_change_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/sniper_change_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/sniper_change_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Sniper"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_SNIPER_NEXT_TARGET"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_Sniper_HoldFire" origin="28 48" tooltip="Hold fire" hidden="true">
+		<RenderObject2D texture="data/textures/gui/contextual/sniper_hold_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/sniper_hold_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/sniper_hold_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Sniper"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_SNIPER_HOLD_FIRE"/>
+		</OnClick>
+	</Button>
+
+	<Button name="ContextMenu_Sniper_FireAtWill" origin="28 48" tooltip="Fire at will" hidden="false">
+		<RenderObject2D texture="data/textures/gui/contextual/sniper_fire_normal.tga"/>
+
+		<OnHover>
+			<RenderObject2D texture="data/textures/gui/contextual/sniper_fire_hover.tga"/>
+		</OnHover>
+
+		<OnClick>
+			<RenderObject2D texture="data/textures/gui/contextual/sniper_fire_normal.tga"/>
+			<GUIAction type="Hide" target="ContextMenu_Sniper"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_RESUME"/>
+			<GUIAction type="TriggerEvent" target="GUI_GAME_SNIPER_FIRE_AT_WILL"/>
+		</OnClick>
+	</Button>
+</Item>
+-->

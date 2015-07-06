@@ -1,4 +1,7 @@
 <!--
+ | Code authored by: Tom 'Red Panda' Richardson
+ | Steam Profile: http://steamcommunity.com/id/WinkyFacePanda/
+ | 
  | Code authored by: Splash Friday
  | Steam Profile: http://steamcommunity.com/id/splashfriday/
  | 
@@ -6,13 +9,16 @@
  | Steam Profile: http://steamcommunity.com/id/RedKage/
  |-->
 
-
 <Mod
-	name="Clean Play"
-	description="Hides various GUI elements for clean replays."
-	image="textures/gui/mods/clean_play.png"
-	author="Splash Friday"
-	gameVersion="0.1.3"
-	tags="Interface, Replays, Other"
-	changeNotes=""
+	name="Extra. Clean."
+	description="Clean replays that utilize the Extra Gear"
+	image="textures/gui/mods/extraclean.png"
+
+	author="Red Panda, Splash Friday"
+
+	gameVersion="1.0.7"
+
+	tags="Interface, Replays, Other, Gear"
+
+	changeNotes="Fixed a version number error"
 />

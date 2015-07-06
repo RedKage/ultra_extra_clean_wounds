@@ -1,0 +1,23 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Root>
+<Sound ID="SFX_M26_EXPL" Path="weapons/SFX_M26_EXPL.wav" channel="game" preload="true"/>
+<Sound ID="SFX_HE_EXPL" Path="weapons/SFX_HE_EXPL.wav" channel="game" preload="true"/>
+<Sound ID="SFX_LESSLETHAL_EXPL" Path="weapons/SFX_LESSLETHAL_EXPL.wav" channel="game" preload="true"/>
+<Sound ID="P239_FIREa" Path="weapons/P239_FIREa.wav" channel="game" preload="true"/>
+<Sound ID="P239SD_FIREa" Path="weapons/P239SD_FIREa.wav" channel="game" preload="true"/>
+<Sound ID="M37_FIREa" Path="weapons/M37_FIREa.wav" channel="game" preload="true"/>
+<Sound ID="SFX_GAS" Path="weapons/SFX_GAS.wav" channel="game" preload="true"/>
+</Root>

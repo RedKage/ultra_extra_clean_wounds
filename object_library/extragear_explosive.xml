@@ -1,0 +1,268 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Equipment>
+	<BreachingCharge name="HE Breach Charge" inventoryBinding="UtilityPouch" quantity="3" unlockCost="10">
+		<RenderObject2D texture="data/textures/gui/customization/items/hecharge.tga"/> <!-- this is image is shown in the GUI customization page -->
+		<Skin binding="weaponless"/>
+		<Description value="Using higher explosives than the stand-\n
+							ard breaching charge  allows  a  larger\n
+							explosive   radius   behind  the  door,\n
+							effectively  killing  everyone  in  the\n
+							room"
+		/>		
+
+		<!-- area2 size does not contain area1 -->
+		<ModifiableParams
+			deployTime="6000"
+			area1HeightMeters="5"
+			area1WidthMeters="2.5"
+			area1Damage="12"
+			area1StunTime="3000"
+			area2HeightMeters="2.5"
+			area2WidthMeters="2.5"
+			area2Damage="12"
+			area2StunTime="3000"
+		/>
+
+		<Parameters explosionSound="SFX_HE_EXPL">
+							<FX
+				explosionAnimation="ANIM_FX_DOOR_EXPLOSION"
+				debrisAnimation="ANIM_FX_DOOR_EXPLODE_DEBRIS"
+				burnMarkEntity="BurnMark2"
+				shrapnelEntity="GrenadeShrapnel">				
+				<Distort durationMsec="1000">
+					<RenderObject2D texture="data/textures/fx/door_explosion_distort.tga" layer="30" scaleX="0.75" scaleY="0.75"/>
+				</Distort>
+			</FX>			
+		</Parameters>
+		
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>		
+		
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>		
+		
+		
+		
+		
+		
+		
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+	</BreachingCharge>
+	
+	<BreachingCharge name="LTL Breach Charge" inventoryBinding="UtilityPouch" quantity="3" unlockCost="10">
+		<RenderObject2D texture="data/textures/gui/customization/items/lesslethalcharge.tga"/>
+		<Skin binding="weaponless"/>
+		<Description value="This  breaching charge uses a specially\n
+							dampened type  of explosive that causes\n
+							massive vibrations through the attached\n
+							object,  destroying  it.  Leaving   the\n
+							occupants of room unharmed,  but  stun-\n
+							ned"
+		/>		
+
+		<!-- area2 size does not contain area1 -->
+		<ModifiableParams
+			deployTime="6000"
+			area1HeightMeters="5"
+			area1WidthMeters="2.5"
+			area1Damage="0"
+			area1StunTime="6000"
+			area2HeightMeters="2.5"
+			area2WidthMeters="2.5"
+			area2Damage="0"
+			area2StunTime="6000"
+		/>
+
+		<Parameters explosionSound="SFX_LESSLETHAL_EXPL">
+			<FX
+				explosionAnimation=""
+				debrisAnimation="ANIM_FX_DOOR_EXPLODE_DEBRIS"
+				burnMarkEntity="BurnMark1"
+				shrapnelEntity="GrenadeShrapnel">
+				<Nova durationMsec="2000">
+					<RenderObject2D texture="data/textures/fx/flashbang_nova.tga" layer="30" blendMode="add"/>
+				</Nova>
+				<Distort durationMsec="1000">
+					<RenderObject2D texture="data/textures/fx/door_explosion_distort.tga" layer="30" scaleX="0.25" scaleY="0.25"/>
+				</Distort>
+			</FX>			
+		</Parameters>
+
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>
+		
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>		
+		
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+	</BreachingCharge>
+	
+	<Grenade name="M26 Frag" inventoryBinding="UtilityPouch" quantity="3" unlockCost="15">
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>
+
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>
+
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+		<RenderObject2D texture="data/textures/gui/customization/items/m26fraggrenade.tga"/>
+		<Skin binding="weaponless"/>
+		<Description value="Fragmentation  is enhanced by a special\n
+							pre-notched  fragmentation  coil   that\n
+							lies along  the inside of the grenade's\n
+							body.This  coil  had  a circular cross-\n
+							section in the M26 grenade and an impr-\n
+							oved  square cross-section in the M26A1\n
+							and later designs."
+		/>		
+		
+		<ModifiableParams
+			minTimeToExplode="500"
+			throwTime="1000"
+			numShrapnel="600"		 	
+			
+		/>
+		<Parameters
+			bodyEntityName="M26FragBody"
+			targetEntityName="M26FragTarget"
+			pathIconTexture="data/textures/gui/contextual/pathicon_m26frag_active.tga"
+			explosionSound="SFX_M26_EXPL">
+			
+			<FX
+				explosionAnimation="ANIM_FX_TIMEBOMB_EXPLOSION"
+				burnMarkEntity="BurnMark_FRAG"
+				shrapnelEntity="M26Shrapnel">
+				
+				<Dust 
+					durationMsec="5000" 
+					animation="ANIM_FX_GRENADE_DUST"
+				/>
+				
+				<Nova durationMsec="300">
+					<RenderObject2D texture="data/textures/fx/flashbang_nova.tga" layer="30" blendMode="add"/>
+				</Nova>
+
+				<Distort durationMsec="800">
+					<RenderObject2D texture="data/textures/fx/flashbang_distort.tga" layer="30"/>
+				</Distort>
+			</FX>		
+			
+
+			<EffectRange radiusMeters="1">
+				<StunEffect chancePercent="100" innerRangeTimeMSec="1500" outerRangeTimeMSec="1500"/>
+				<DamageEffect chancePercent="100" damage="100" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="5" rangeMeters="5" armorPiercingLevel="100"/>
+			</EffectRange>
+
+			<EffectRange radiusMeters="5">
+				<StunEffect chancePercent="100" innerRangeTimeMSec="1500" outerRangeTimeMSec="1500"/>
+				<DamageEffect chancePercent="60" damage="80" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="100" rangeMeters="5" armorPiercingLevel="100"/>
+			</EffectRange>			
+		</Parameters>		
+	</Grenade>
+
+</Equipment>

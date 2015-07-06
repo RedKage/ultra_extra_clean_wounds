@@ -1,0 +1,23 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Animations>
+	<RenderObject2D name="ANIM_FX_CSGAS" texture="data/textures/fx/gas_gren_smoke.tga" blendMode="add" scaleX="3" scaleY="3" layer="21">
+		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="31" animationTimeMS="2500" numLoops="9" randomizeStartTime="true"/>
+	</RenderObject2D>
+	
+	
+
+	
+</Animations>
