@@ -1,0 +1,47 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Entities>
+
+	<Entity name="M26FragBody" type="Grenade" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/grenadeBody_m26frag.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>
+	
+	<Entity name="M26FragTarget" type="GrenadeTarget" fogOfWarVisibility="full" tooltip="Frag target">
+		<RenderObject2D texture="data/textures/fx/crosshair_m26frag.tga" layer="30"/>
+		<Falloff>
+			<RenderObject2D texture="data/textures/fx/falloff_m26frag.tga" sizeX="648" sizeY="648" layer="31"/>
+		</Falloff>
+	</Entity>
+
+	<Entity name="M26Shrapnel" type="GrenadeShrapnel" fogOfWarVisibility="full">
+		<RenderObject2D texture="data/textures/fx/grenadem26_shrapnel.tga" layer="11"/>
+	</Entity>
+
+	<Entity name="LightstickBody" type="Grenade" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/glowstickBody.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>
+	
+	<Entity name="LightstickTarget" type="GrenadeTarget" fogOfWarVisibility="full" tooltip="Glow stick target">
+		<RenderObject2D texture="data/textures/fx/crosshair_glowstick.tga" layer="30"/>
+		<Falloff>
+			<RenderObject2D texture="data/textures/fx/falloff_m26frag.tga" sizeX="648" sizeY="648" layer="31"/>
+		</Falloff>
+	</Entity>
+	
+	<Entity name="csgasBody" type="Grenade" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/csgasBody.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>	
+
+</Entities>

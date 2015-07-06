@@ -1,0 +1,326 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Equipment>
+	<Firearm name="P239" inventoryBinding="UtilityPouch" category="pistol" unlockCost="5">
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>
+		
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>		
+		
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+		<RenderObject2D texture="data/textures/gui/customization/items/sigp239.tga"/> <!-- this is image is shown in the GUI customization page -->
+		<Skin binding="pistol"/>
+		<Description value="For  those  times  when size matters, a\n
+							compact  SIG SAUER® Classic measures up\n
+							and makes an ideal backup pistol."
+		/>							 
+						
+
+		<ModifiableParams
+			muzzleDropDistanceMeters="0.425"
+			numPellets="1"
+			roundsPerMagazine="8"
+			roundsPerSecond="8.0"
+			damagePerBullet="11"
+			armorPiercingLevel="5"
+			spreadAt10Meters="0.15"
+			silenced="0"
+			shotSoundMeters="10"
+			closedBolt="1"
+
+			cyclicReload="0"
+			reloadTime="500"
+			reloadEmptyTime="500"
+			changeInTime="50"
+			changeOutTime="50"
+			readyTime="50"
+			guardTime="10"
+		/>
+
+		<Params
+			caliberInfoText="9mm"
+			operationInfoText="Semi-Auto"
+		/>
+
+		<AttackTypes>
+			<AttackType name="SWAT_EmergencyFire45"/>
+			<AttackType name="SWAT_DoubleTap45"/>
+			<AttackType name="SWAT_ControlledPair45"/>
+			<AttackType name="SWAT_PistolAimedFireShort45"/>
+			<AttackType name="SWAT_PistolAimedFire45"/>
+			<AttackType name="SWAT_PistolAimedFireLong45"/>
+			<AttackType name="SWAT_PistolAimedFireLong45XX"/>
+		</AttackTypes>
+
+		<MuzzleFlash muzzlePointOffset="21 -2" textureAnimation="ANIM_FX_MUZZLE_FLASH_1911">
+			<BulletTrace durationMSec="550">
+				<RenderObject2D texture="data/textures/fx/bullet_trace.dds" sizeX="512" sizeY="8" blendMode="add_masked"/>
+			</BulletTrace>
+			<Flares>
+				<RenderObject2D texture="data/textures/fx/muzzle_flash_flare1.tga" sizeX="200" sizeY="200" layer="11" blendMode="add"/>
+				<RenderObject2D texture="data/textures/fx/muzzle_flash_flare2.tga" sizeX="200" sizeY="200" layer="11" blendMode="add"/>
+				<RenderObject2D texture="data/textures/fx/muzzle_flash_flare3.tga" sizeX="200" sizeY="200" layer="11" blendMode="add"/>
+			</Flares>
+		</MuzzleFlash>
+
+		<Sounds> <!-- max 4 variants for each action -->
+			<Equip name="SFX_1911_EQUIP"/>
+			<Unequip name="SFX_1911_UNEQP"/>
+			<Reload name="SFX_1911_RELD"/>
+			<ReloadEmpty name="SFX_1911_RELDEMPT"/>
+			<FireSingle name="P239_FIREa"/>
+			<FireRapid name="P239_FIREa"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPe"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPf"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPc"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPd"/>	
+		</Sounds>
+	</Firearm>	
+	
+	
+	<Firearm name="P239-SD" inventoryBinding="UtilityPouch" category="pistol" unlockCost="5">
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>
+		
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>		
+		
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+		<RenderObject2D texture="data/textures/gui/customization/items/sigp239sd.tga"/> <!-- this is image is shown in the GUI customization page -->
+		<Skin binding="pistol"/>
+		<Description value="For  those  times  when size matters, a\n
+							compact  SIG SAUER® Classic measures up\n
+							and makes an ideal backup pistol."
+		/>							 
+						
+
+		<ModifiableParams
+			muzzleDropDistanceMeters="0.475"
+			numPellets="1"
+			roundsPerMagazine="8"
+			roundsPerSecond="8.0"
+			damagePerBullet="11"
+			armorPiercingLevel="4"
+			spreadAt10Meters="0.10"
+			silenced="0"
+			shotSoundMeters="10"
+			closedBolt="1"
+
+			cyclicReload="0"
+			reloadTime="500"
+			reloadEmptyTime="500"
+			changeInTime="50"
+			changeOutTime="50"
+			readyTime="50"
+			guardTime="10"
+		/>
+
+		<Params
+			caliberInfoText="9mm"
+			operationInfoText="Semi-Auto"
+		/>
+
+		<AttackTypes>
+			<AttackType name="SWAT_EmergencyFire45"/>
+			<AttackType name="SWAT_DoubleTap45"/>
+			<AttackType name="SWAT_ControlledPair45"/>
+			<AttackType name="SWAT_PistolAimedFireShort45"/>
+			<AttackType name="SWAT_PistolAimedFire45"/>
+			<AttackType name="SWAT_PistolAimedFireLong45"/>
+			<AttackType name="SWAT_PistolAimedFireLong45XX"/>
+		</AttackTypes>
+
+		<MuzzleFlash muzzlePointOffset="21 -4" textureAnimation="ANIM_FX_MUZZLE_FLASH_SUPPRESSED">
+			<BulletTrace durationMSec="400">
+				<RenderObject2D texture="data/textures/fx/bullet_trace.tga" sizeX="512" sizeY="8" blendMode="add_masked" generateMips="true"/>
+			</BulletTrace>
+		</MuzzleFlash>
+
+		<Sounds> <!-- max 4 variants for each action -->
+			<Equip name="SFX_1911_EQUIP"/>
+			<Unequip name="SFX_1911_UNEQP"/>
+			<Reload name="SFX_1911_RELD"/>
+			<ReloadEmpty name="SFX_1911_RELDEMPT"/>
+			<FireSingle name="P239SD_FIREa"/>
+			<FireRapid name="P239SD_FIREa"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPe"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPf"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPc"/>
+			<ShellDrop name="SFX_PISTOL_SHELL_DROPd"/>	
+		</Sounds>
+	</Firearm>		
+	
+	
+	<Firearm name="M37" inventoryBinding="UtilityPouch" category="shotgun" unlockCost="10">
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>
+		
+		
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>		
+		
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="-15" turnSpeedLocalModifierPercent="-10"/>
+		<RenderObject2D texture="data/textures/gui/customization/items/m37.tga"/> <!-- this is image is shown in the GUI customization page -->
+		<Skin binding="shotgun"/>
+		<Description value="The  Ithaca 37 is a pump-action shotgun\n
+							made in large numbers for the civilian,\n
+							military, and police markets. It utili-\n
+							zes a  novel  combination  ejection and\n
+							loading port  on the  bottom of the gun\n
+							which leaves  the  sides  closed to the\n
+							elements."
+		/>						
+
+		<ModifiableParams
+			muzzleDropDistanceMeters="0.6"
+			numPellets="8"
+			roundsPerMagazine="4"
+			roundsPerSecond="1.45"
+			damagePerBullet="7"
+			armorPiercingLevel="4"
+			spreadAt10Meters="0.6"
+			silenced="1"
+			shotSoundMeters="10"
+			closedBolt="1"
+
+			cyclicReload="1"
+			reloadTime="550"
+			reloadEmptyTime="1500"
+			changeInTime="400"
+			changeOutTime="120"
+			readyTime="450"
+			guardTime="125"
+		/>
+
+		<Params
+			caliberInfoText="12 Gauge"
+			operationInfoText="Pump Action"
+		/>
+
+		<AttackTypes>
+			<AttackType name="SWAT_PumpAimedFire"/>
+			<AttackType name="SWAT_PumpAimedFireLong"/>
+			<AttackType name="SWAT_PumpAimedFireLongXX"/>
+		</AttackTypes>
+
+		<MuzzleFlash muzzlePointOffset="34 -4" textureAnimation="ANIM_FX_MUZZLE_FLASH_SHOTGUN">
+			<BulletTrace durationMSec="550">
+				<RenderObject2D texture="data/textures/fx/bullet_trace_shotgun.dds" blendMode="add_masked"/>
+			</BulletTrace>
+			<Flares>
+				<RenderObject2D texture="data/textures/fx/muzzle_flash_flare1.tga" sizeX="260" sizeY="260" layer="11" blendMode="add"/>
+				<RenderObject2D texture="data/textures/fx/muzzle_flash_flare2.tga" sizeX="260" sizeY="260" layer="11" blendMode="add"/>
+				<RenderObject2D texture="data/textures/fx/muzzle_flash_flare3.tga" sizeX="260" sizeY="260" layer="11" blendMode="add"/>
+			</Flares>
+		</MuzzleFlash>
+
+		<Sounds>
+			<Equip name="SFX_M4_EQUIP"/>
+			<Unequip name="SFX_M4_UNEQP"/>
+			<Reload name="SFX_SG870_RELD"/>
+			<ReloadEmpty name="SFX_SG870_CHARGE"/>
+			<FireSingle name="M37_FIREa"/>
+			<FireRapid name="M37_FIREa"/>
+			<ShellDrop name="SFX_SHOTGUN_SHELL_DROPa"/>
+			<ShellDrop name="SFX_SHOTGUN_SHELL_DROPb"/>
+			<ShellDrop name="SFX_SHOTGUN_SHELL_DROPc"/>
+			<ShellDrop name="SFX_SHOTGUN_SHELL_DROPd"/>
+		</Sounds>
+	</Firearm>		
+</Equipment>

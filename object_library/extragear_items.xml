@@ -1,0 +1,216 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Equipment>
+	<Grenade name="Glow Stick" inventoryBinding="UtilityPouch" quantity="30" unlockCost="1">
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>	
+
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>
+
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+		<RenderObject2D texture="data/textures/gui/customization/items/glowstickgreen.tga"/>
+		<Skin binding="weaponless"/>
+		<Description value="Glow  sticks are used to indicate  that\n
+							a room has been cleared or to light  up\n
+							a dark area"
+		/>		
+		
+		<ModifiableParams
+			minTimeToExplode="0"
+			throwTime="1000"
+			numShrapnel="0"		 	
+			
+		/>
+		<Parameters
+			bodyEntityName="LightstickBody"
+			targetEntityName="LightstickTarget"
+			pathIconTexture="data/textures/gui/contextual/pathicon_glowstick_active.tga"
+			explosionSound="">
+			
+			<FX
+				explosionAnimation=""
+				burnMarkEntity="GlowstickGround"
+				shrapnelEntity="">
+				
+				<Nova durationMsec="1200000">
+					<RenderObject2D texture="data/textures/fx/glowstick_nova.tga" layer="1" blendMode="add"/>
+				</Nova>
+				<Distort durationMsec="0">
+				</Distort>
+			</FX>		
+			
+
+			<EffectRange radiusMeters="1">
+				<StunEffect chancePercent="0" innerRangeTimeMSec="0" outerRangeTimeMSec="0"/>
+				<DamageEffect chancePercent="0" damage="0" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="0" rangeMeters="0" armorPiercingLevel="0"/>
+			</EffectRange>
+
+			<EffectRange radiusMeters="1">
+				<StunEffect chancePercent="0" innerRangeTimeMSec="0" outerRangeTimeMSec="0"/>
+				<DamageEffect chancePercent="0" damage="0" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="0" rangeMeters="0" armorPiercingLevel="0"/>
+			</EffectRange>			
+		</Parameters>		
+	</Grenade>
+	
+	<Mirror name="Wide Lens Optiwand" inventoryBinding="SupportGear" unlockCost="5">
+		<RenderObject2D texture="data/textures/gui/customization/items/optiwandcamera.tga"/> <!-- this is image is shown in the GUI customization page -->
+		<Skin binding="weaponless"/>
+		<ModifiableParams
+			fovDegrees="180"
+			changeInTime="500"
+			changeOutTime="500"
+		/>
+		<Class value="Pointman"/>
+		
+		<Class value="Pointman_Default"/>
+		
+		<Class value="Pointman_Black"/>
+
+		<Class value="Pointman_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		
+		<Class value="Pointman_Olive"/>
+		
+		<Class value="Pointman_Red"/>
+		
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+	</Mirror>
+	
+	
+	<Grenade name="CS Gas" inventoryBinding="UtilityPouch" quantity="3" unlockCost="20">
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>	
+
+		<Class value="Pointman_Default"/>
+		<Class value="Assaulter_Default"/>
+		<Class value="Breacher_Default"/>
+		<Class value="Stealth_Default"/>
+		
+		<Class value="Pointman_Black"/>
+		<Class value="Assaulter_Black"/>
+		<Class value="Breacher_Black"/>
+		<Class value="Stealth_Black"/>
+
+		<Class value="Pointman_Blue"/>
+		<Class value="Assaulter_Blue"/>
+		<Class value="Breacher_Blue"/>
+		<Class value="Stealth_Blue"/>
+
+		<Class value="Pointman_Grey"/>
+		<Class value="Assaulter_Grey"/>
+		<Class value="Breacher_Grey"/>
+		<Class value="Stealth_Grey"/>		
+		
+		<Class value="Pointman_Olive"/>
+		<Class value="Assaulter_Olive"/>
+		<Class value="Breacher_Olive"/>
+		<Class value="Stealth_Olive"/>			
+		
+		<Class value="Pointman_Red"/>
+		<Class value="Assaulter_Red"/>
+		<Class value="Breacher_Red"/>
+		<Class value="Stealth_Red"/>
+		
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+		<RenderObject2D texture="data/textures/gui/customization/items/csgasgrenade.tga"/>
+		<Skin binding="weaponless"/>
+		<Description value="Exposure causes a burning sensation and\n
+							tearing of  the eyes to the extent that\n
+							the subject cannot keep his eyes  open,\n
+							and a burning irritation  of the nose, \n
+							mouth and throat mucous membranes."
+		/>							 
+		
+		<ModifiableParams
+			minTimeToExplode="650"
+			throwTime="1000"
+			numShrapnel="0"
+		/>
+		
+
+
+		<Parameters
+			bodyEntityName="csgasBody"
+			targetEntityName="FlashbangTarget"
+			pathIconTexture="data/textures/gui/contextual/pathicon_flashbang_active.tga"
+			explosionSound="SFX_GAS">
+
+			<!-- burn marks are randomly rotated/scaled for diversity -->
+			<FX
+				explosionAnimation="csgasignite"
+				burnMarkEntity="csgasground"
+				shrapnelEntity="">
+
+				<Dust durationMsec="30000" animation="ANIM_FX_CSGAS"/>
+
+				<Nova durationMsec="0">
+				</Nova>
+
+				<Distort durationMsec="0">
+				</Distort>
+			</FX>
+
+			<EffectRange radiusMeters="3">
+				<StunEffect chancePercent="100" innerRangeTimeMSec="20000" outerRangeTimeMSec="20000"/>
+				<DamageEffect chancePercent="0" damage="0" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="0" rangeMeters="0" armorPiercingLevel="0"/>
+			</EffectRange>
+
+			<EffectRange radiusMeters="2">
+				<StunEffect chancePercent="100" innerRangeTimeMSec="20000" outerRangeTimeMSec="20000"/>
+				<DamageEffect chancePercent="0" damage="0" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="0" rangeMeters="0" armorPiercingLevel="0"/>
+			</EffectRange>
+		</Parameters>
+	</Grenade>	
+
+</Equipment>

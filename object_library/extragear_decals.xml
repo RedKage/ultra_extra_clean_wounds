@@ -1,0 +1,35 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Entities>
+	<Entity name="BurnMark_FRAG" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/fx/explosion_mark.tga" sizeX="200" sizeY="200" layer="1" blendMode="multiply_inverse"/>
+	</Entity>
+	
+	<Entity name="GlowstickGround" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/fx/glowstickGround.tga" sizeX="12" sizeY="12" layer="2" blendMode="Add"/>
+	</Entity>
+	
+	<Entity name="csgasground" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/fx/csgasground.tga" sizeX="10" sizeY="23" layer="2" blendMode="Add"/>
+	</Entity>
+
+
+	<Entity name="csgasignite" type="FX" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/fx/fire.tga" blendMode="add" color="ffc8c8c8" layer="19" scaleX="1.0" scaleY="1.0">
+			<TextureAnimation frameWidth="32" frameHeight="32" startFrame="0" endFrame="47" animationTimeMS="3000" numLoops="-1" randomizeStartTime="true"/>
+		</RenderObject2D>
+	</Entity>
+	
+</Entities>

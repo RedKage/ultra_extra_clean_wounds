@@ -1,0 +1,18 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Mod
+	name="Extra Gear"
+	description="Offers  additional  support  gear  for  you to use from your support pouches"			image="textures/gui/mods/extragear_preview.png"	author="Red Panda"	gameVersion="1.0.7"	tags="Gear"	changeNotes="Fixed a version number error"
+/>

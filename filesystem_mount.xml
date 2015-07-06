@@ -1,0 +1,38 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+
+<filesystem_mount>
+	<ObjectLibrary>
+		<MountFile name="data/object_library/extragear_animations.xml"/>
+		<MountFile name="data/object_library/extragear_explosive.xml"/>
+		<MountFile name="data/object_library/extragear_guns.xml"/>
+		<MountFile name="data/object_library/extragear_items.xml"/>		
+		<MountFile name="data/object_library/extragear_entities_various.xml"/>
+		<MountFile name="data/object_library/extragear_decals.xml"/>
+	</ObjectLibrary>
+
+	<Maps>
+	</Maps>
+
+	<RandomMaps>
+	</RandomMaps>
+
+	<Sounds>
+		<MountFile name="data/object_library/extragear_sounds.xml"/>
+	</Sounds>
+
+	<GUI>
+	</GUI>
+</filesystem_mount>
