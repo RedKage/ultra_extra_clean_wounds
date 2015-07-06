@@ -10,15 +10,11 @@
  |-->
 
 <Mod
-	name="Extra. Clean."
-	description="Clean replays that utilize the Extra Gear"
-	image="textures/gui/mods/extraclean.png"
-
-	author="Red Panda, Splash Friday"
-
-	gameVersion="1.0.7"
-
-	tags="Interface, Replays, Other, Gear"
-
-	changeNotes="Fixed a version number error"
+	name="Ultra. Extra. Clean. Wounds."
+	description="Clean replays that utilize the Extra Gear and Bullet Wounds mods."
+	image="textures/gui/mods/extra_clean_wounds.png"
+	author="Red Panda, Splash Friday, BogdanM, RedShadow"
+	gameVersion="1.0.8"
+	tags="Other, Weapons, Gear, Interface, Replays, Sounds"
+	changeNotes="Added BogdanM's MK13 Flashbang"
 />

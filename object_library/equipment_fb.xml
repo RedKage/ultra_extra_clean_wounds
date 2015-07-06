@@ -1,0 +1,58 @@
+<!-- all time settings are in milliseconds, unless name says otherwise -->
+<Equipment>
+	<Grenade name="MK13 Flashbang" inventoryBinding="UtilityPouch" quantity="2">
+		<RenderObject2D texture="data/textures/gui/customization/items/9bang.tga"/> <!-- this is image is shown in the GUI customization page -->
+		<Skin binding="weaponless"/>
+		<Description value="The MK13 Sound & Flash grenade produces 9 \nblinding flashes and deafening noise effects \nsufficient to daze and disorient nearby \nonlookers for a period of 4 seconds. \nThe MK13 does not cause any permanent injury."/>
+		<Class value="Pointman"/>
+		<Class value="Assaulter"/>
+		<Class value="Breacher"/>
+		<Class value="Stealth"/>
+		<MobilityModifiers moveSpeedLocalModifierPercent="0" turnSpeedLocalModifierPercent="0"/>
+
+		<!--
+		-the effectRange Radius does not contain the previous one, so the total effect range = radius1+radius2+...+radiusN
+		-explosion time is adjusted automatically depending on the distance to target, but have a minimum explosion time
+		-if "numShrapnel" != 0 the grenade does not do instant damage, instead uses the shrapnel to apply each effect for proper range
+		-->
+		<ModifiableParams
+			minTimeToExplode="500"
+			throwTime="800"
+			numShrapnel="0"
+		/>
+
+		<Parameters
+			bodyEntityName="FlashbangBody"
+			targetEntityName="FlashbangTarget"
+			pathIconTexture="data/textures/gui/contextual/pathicon_flashbang_active.tga"
+			explosionSound="SFX_FLASHBANG">
+
+			<!-- burn marks are randomly rotated/scaled for diversity -->
+			<FX
+				explosionAnimation="ANIM_FX_FLASHBANG_EXPLODE"
+				burnMarkEntity="FlashbangMark"
+				shrapnelEntity="">
+
+				<Dust durationMsec="15000" animation="ANIM_FX_GRENADE_DUST"/>
+
+				<Nova/>
+
+				<Distort durationMsec="200">
+					<RenderObject2D texture="data/textures/fx/flashbang_distort.tga" layer="30"/>
+				</Distort>
+			</FX>
+
+			<EffectRange radiusMeters="2">
+				<StunEffect chancePercent="100" innerRangeTimeMSec="4000" outerRangeTimeMSec="4000"/>
+				<DamageEffect chancePercent="0" damage="0" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="0" rangeMeters="0" armorPiercingLevel="0"/>
+			</EffectRange>
+
+			<EffectRange radiusMeters="1.5">
+				<StunEffect chancePercent="100" innerRangeTimeMSec="4000" outerRangeTimeMSec="1000"/>
+				<DamageEffect chancePercent="0" damage="0" armorPiercingLevel="0"/>
+				<ScatterEffect chancePercent="0" rangeMeters="0" armorPiercingLevel="0"/>
+			</EffectRange>
+		</Parameters>
+	</Grenade>
+</Equipment>

@@ -1,0 +1,3 @@
+<Root>
+    <Sound ID="SFX_FLASHBANG" Path="explosions/SFX_FLASHBANG.wav" channel="game" preload="true"/>
+</Root>

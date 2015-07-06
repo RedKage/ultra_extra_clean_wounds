@@ -14,6 +14,7 @@ SpawnPoint
 Sniper
 Window
 FX
+StoreySwitcher
 -->
 
 <!-- RenderObject2D parameters
@@ -62,33 +63,36 @@ CM_VISION_BLOCK					= 16, // full vision block
 <Entities>
 	<!--++++++++++++-->
 	<!-- Doors -->
-	<!-- using custom sizeX/Y to control the range of interaction (the range within which the human can interact with a door) -->
+	<!-- using custom sizeX/Y to control the range of interaction (the range within which the human can interact with a door)
+	locked="1" is normal lock
+	locked="2" is padlocked
+	-->
 	<!--++++++++++++-->
 		<Entity name="Door1" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Door">
 			<CollisionInfo type="dynamic" flags="16"/>
 			<Parameters
 				locked="0"
-				lockPickTimeSeconds="0"
-				breachTimeSeconds="0"
 				openAnimation="ANIM_DOOR_OPEN"
 				closeAnimation="ANIM_DOOR_CLOSE"
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
 				sfxOpen="SFX_DOOR_OPEN"
 				sfxClose="SFX_DOOR_CLOSE"
 				sfxBreak="SFX_DOOR_FALL"
-				sfxBreakHammer="SFX_RAM_HIT"
-				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
 			/>
 			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
 		</Entity>
 
-		<Entity name="DoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Door (Locked)">
+		<Entity name="DoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Door">
 			<CollisionInfo type="dynamic" flags="16"/>
 			<Parameters
 				locked="1"
 				lockPickTimeSeconds="10"
 				breachTimeSeconds="4"
+				lockpickDisabled="false"
+				crowbarDisabled="false"
+				hammerDisabled="false"
+				cameraDisabled="false"
+				shotgunDisabled="false"
 				openAnimation="ANIM_DOOR_OPEN"
 				closeAnimation="ANIM_DOOR_CLOSE"
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
@@ -102,16 +106,21 @@ CM_VISION_BLOCK					= 16, // full vision block
 			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
 		</Entity>
 
-		<Entity name="FlimsyDoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Flimsy Door (Locked)">
+		<Entity name="FlimsyDoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Flimsy Door">
 			<CollisionInfo type="dynamic" flags="16"/>
 			<Parameters
 				locked="1"
 				lockPickTimeSeconds="10"
 				breachTimeSeconds="1.5"
+				lockpickDisabled="false"
+				crowbarDisabled="false"
+				hammerDisabled="false"
+				cameraDisabled="false"
+				shotgunDisabled="false"
 				openAnimation="ANIM_DOOR_OPEN"
 				closeAnimation="ANIM_DOOR_CLOSE"
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
-				sfxOpen="SFX_DOOR_OPEN"
+				sfxOpen="SFX_DOOR_OPENb"
 				sfxClose="SFX_DOOR_CLOSE"
 				sfxBreak="SFX_DOOR_FALL"
 				sfxBreakHammer="SFX_RAM_HIT"
@@ -122,77 +131,85 @@ CM_VISION_BLOCK					= 16, // full vision block
 		</Entity>
 
 
-		<Entity name="SafeDoorLocked" type="Door" locked="1" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Safe Door (Locked)">
+		<Entity name="SafeDoorLocked" type="Door" locked="1" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Safe Door">
 			<CollisionInfo type="dynamic" flags="16"/>
 			<Parameters
 				locked="1"
 				lockPickTimeSeconds="60"
 				breachTimeSeconds="30"
+				lockpickDisabled="false"
+				crowbarDisabled="false"
+				hammerDisabled="false"
+				cameraDisabled="true"
+				shotgunDisabled="true"
 				openAnimation="ANIM_DOOR_OPEN"
 				closeAnimation="ANIM_DOOR_CLOSE"
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
-				sfxOpen="SFX_DOOR_OPEN"
+				sfxOpen="SFX_DOOR_OPENb"
 				sfxClose="SFX_DOOR_CLOSE"
-				sfxBreak="SFX_DOOR_FALL"
+				sfxBreak="SFX_DOOR_FALLb"
 				sfxBreakHammer="SFX_RAM_HIT"
 				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USEb"
 			/>
 			<RenderObject2D texture="data/textures/environment/SafeDoor.tga" layer="3"/>
 		</Entity>
 
-		<Entity name="PrisonDoorLocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Bars Door (Locked)">
+		<Entity name="GratingDoor" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Grating Door">
 			<CollisionInfo type="dynamic" flags="4"/>
 			<Parameters
 				locked="1"
 				lockPickTimeSeconds="10"
-				breachTimeSeconds="4"
-				openAnimation="ANIM_DOOR_OPEN"
-				closeAnimation="ANIM_DOOR_CLOSE"
-				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
-				sfxOpen="SFX_DOOR_OPEN"
-				sfxClose="SFX_DOOR_CLOSE"
-				sfxBreak="SFX_DOOR_FALL"
-				sfxBreakHammer="SFX_RAM_HIT"
+				breachTimeSeconds="20"
+				lockpickDisabled="false"
+				crowbarDisabled="false"
+				hammerDisabled="false"
+				cameraDisabled="false"
+				shotgunDisabled="false"
+				openAnimation="ANIM_DOOR_GRATING_OPEN"
+				closeAnimation="ANIM_DOOR_GRATING_CLOSE"
+				sfxOpen="SFX_GRATINGDOOR_OPEN"
+				sfxClose="SFX_GRATINGDOOR_CLOSE"
+				sfxBreak="SFX_GRATINGDOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT_METAL"
 				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
+				sfxBreachTool="SFX_BRCHTOOL_METAL"
 			/>
-			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+			<RenderObject2D texture="data/textures/environment/door_grating.dds" layer="3"/>
 		</Entity>
 
-		<Entity name="GlassDoor" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Glass Door">
+		<Entity name="GratingPadlockedDoor" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Grating Door (Padlocked)">
 			<CollisionInfo type="dynamic" flags="4"/>
 			<Parameters
-				locked="0"
-				lockPickTimeSeconds="0"
+				locked="2"
+				lockPickTimeSeconds="20"
 				breachTimeSeconds="0"
-				openAnimation="ANIM_DOOR_OPEN"
-				closeAnimation="ANIM_DOOR_CLOSE"
-				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
-				sfxOpen="SFX_DOOR_OPEN"
-				sfxClose="SFX_DOOR_CLOSE"
-				sfxBreak="SFX_DOOR_FALL"
-				sfxBreakHammer="SFX_RAM_HIT"
+				lockpickDisabled="false"
+				crowbarDisabled="true"
+				hammerDisabled="true"
+				cameraDisabled="false"
+				shotgunDisabled="false"
+				openAnimation="ANIM_DOOR_GRATING_OPEN"
+				closeAnimation="ANIM_DOOR_GRATING_CLOSE"
+				sfxOpen="SFX_GRATINGDOOR_OPEN"
+				sfxClose="SFX_GRATINGDOOR_CLOSE"
+				sfxBreak="SFX_GRATINGDOOR_FALL"
+				sfxBreakHammer="SFX_RAM_HIT_METAL"
 				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
+				sfxBreachTool="SFX_BRCHTOOL_METAL"
 			/>
-			<RenderObject2D texture="data/textures/environment/door1.dds" layer="3"/>
+			<RenderObject2D texture="data/textures/environment/door_grating_locked.dds" layer="3"/>
 		</Entity>
 
 		<Entity name="DoorBus" type="Door" fogOfWarVisibility="full" tooltip="Door">
 			<Parameters
 				locked="0"
-				lockPickTimeSeconds="0"
-				breachTimeSeconds="0"
 				openAnimation="ANIM_DOOR_BUS_OPEN"
 				closeAnimation="ANIM_DOOR_BUS_CLOSE"
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
 				sfxOpen="SFX_DOORSL_OPEN"
 				sfxClose="SFX_DOORSL_CLOSE"
-				sfxBreak="SFX_DOOR_FALL"
-				sfxBreakHammer="SFX_RAM_HIT"
-				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
+				sfxBreak="SFX_DOOR_FALLb"
 			/>
 			<CollisionInfo type="dynamic" flags="16"/>
 			<RenderObject2D texture="data/textures/environment/door2.dds" layer="3"/>
@@ -209,30 +226,69 @@ CM_VISION_BLOCK					= 16, // full vision block
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
 				sfxOpen="SFX_DOORSL_OPEN"
 				sfxClose="SFX_DOORSL_CLOSE"
-				sfxBreak="SFX_DOOR_FALL"
+				sfxBreak="SFX_DOOR_FALLb"
 				sfxBreakHammer="SFX_RAM_HIT"
 				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USEb"
 			/>
 			<RenderObject2D texture="data/textures/environment/door3.dds" layer="3"/>
 		</Entity>
 
-
-		<Entity name="DoorSlidingBlocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="128" tooltip="Sliding Doors">
+		<Entity name="DoorSliding" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="128" tooltip="Sliding Doors">
 			<CollisionInfo type="dynamic" flags="16"/>
 			<Parameters
-				locked="1"
-				lockPickTimeSeconds="300"
-				breachTimeSeconds="2"
+				locked="0"
+				lockPickTimeSeconds="60"
+				breachTimeSeconds="30"
 				openAnimation="ANIM_DOOR_ELEVATOR_OPEN"
 				closeAnimation="ANIM_DOOR_ELEVATOR_CLOSE"
 				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
 				sfxOpen="SFX_DOORSL_OPEN"
 				sfxClose="SFX_DOORSL_CLOSE"
-				sfxBreak="SFX_DOOR_FALL"
+				sfxBreak="SFX_DOOR_FALLb"
 				sfxBreakHammer="SFX_RAM_HIT"
 				sfxLockpick="SFX_LOCKPICK_USE"
-				sfxBreachTool="SFX_BRCHTOOL_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USEb"
+			/>
+			<RenderObject2D texture="data/textures/environment/door3.dds" layer="3"/>
+		</Entity>
+
+		<Entity name="DoorSlidingSingle" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="64" tooltip="Sliding Door">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="0"
+				lockPickTimeSeconds="60"
+				breachTimeSeconds="30"
+				openAnimation="ANIM_DOOR_SLIDINGSIMPLE_OPEN"
+				closeAnimation="ANIM_DOOR_SLIDINGSIMPLE_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOORSL_OPEN"
+				sfxClose="SFX_DOORSL_CLOSE"
+				sfxBreak="SFX_DOOR_FALLb"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USEb"
+			/>
+			<RenderObject2D texture="data/textures/environment/door4.dds" layer="3"/>
+		</Entity>
+
+
+		<Entity name="DoorSlidingBlocked" type="Door" fogOfWarVisibility="full" sizeX="16" sizeY="128" tooltip="Blocked Doors">
+			<CollisionInfo type="dynamic" flags="16"/>
+			<Parameters
+				locked="1"
+				lockPickTimeSeconds="0"
+				breachTimeSeconds="2"
+				lockpickDisabled="true"
+				openAnimation="ANIM_DOOR_ELEVATOR_OPEN"
+				closeAnimation="ANIM_DOOR_ELEVATOR_CLOSE"
+				debrisAnimation="ANIM_FX_DOOR_BREAK_DEBRIS"
+				sfxOpen="SFX_DOORSL_OPEN"
+				sfxClose="SFX_DOORSL_CLOSE"
+				sfxBreak="SFX_DOOR_FALLb"
+				sfxBreakHammer="SFX_RAM_HIT"
+				sfxLockpick="SFX_LOCKPICK_USE"
+				sfxBreachTool="SFX_BRCHTOOL_USEb"
 			/>
 			<RenderObject2D texture="data/textures/environment/door3.dds" layer="3"/>
 		</Entity>
@@ -310,6 +366,26 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<CollisionInfo type="static" flags="6"/>
 		<RenderObject2D texture="data/textures/environment/plants/obj_plant7.png" layer="2"/>
 	</Entity>
+	
+	<Entity name="Hedge1" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_hedge1.png" layer="2"/>
+	</Entity>
+	
+	<Entity name="Hedge2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_hedge2.png" layer="2"/>
+	</Entity>
+	
+	<Entity name="Hedge3" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_hedge3.png" layer="2"/>
+	</Entity>
+	
+	<Entity name="Hedge4" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_hedge4.png" layer="2"/>
+	</Entity>
 
 	<Entity name="CofeeTable" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
@@ -331,9 +407,19 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/obj_tablesquare.png" layer="2"/>
 	</Entity>
 
+	<Entity name="TableSquare2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tablesquare2.png" layer="2"/>
+	</Entity>
+
 	<Entity name="TableRound" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
 		<RenderObject2D texture="data/textures/environment/obj_tableround.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TableRound2" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tableround2.png" layer="2"/>
 	</Entity>
 
 
@@ -515,6 +601,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 	<Entity name="KitchenCounter8" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
 		<RenderObject2D texture="data/textures/environment/obj_kitchencounter08.png" layer="2"/>
+	</Entity>
+
+	<Entity name="PoolTable" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_pooltable.png" layer="2"/>
 	</Entity>
 
 	<Entity name="KitchenSink" type="Static" fogOfWarVisibility="partial">
@@ -735,6 +826,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/obj_nightstand4.png" layer="2"/>
 	</Entity>
 
+	<Entity name="ToyChest" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_toychest.png" layer="2"/>
+	</Entity>
+
 	<Entity name="Roundtable" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
 		<RenderObject2D texture="data/textures/environment/obj_rountable.png" layer="2"/>
@@ -815,6 +911,12 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<CollisionInfo type="static" flags="10"/>
 		<RenderObject2D texture="data/textures/environment/obj_bar.png" layer="2"/>
 	</Entity>
+
+	<Entity name="BarFrontTopLayer" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_bar.png" layer="3"/>
+	</Entity>
+
 
 	<Entity name="BarFrontRail" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
@@ -1017,6 +1119,10 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/store/obj_cardboardbox4.png" layer="2"/>
 	</Entity>
 
+	<Entity name="Box5" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/store/obj_cardboardbox_open.png" layer="2"/>
+	</Entity>
 
 
 	<Entity name="GarbageBinClosed" type="Static" fogOfWarVisibility="partial">
@@ -1123,6 +1229,12 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/obj_rag7.png" layer="1"/>
 	</Entity>
 
+	<Entity name="Rag8Upper" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/obj_rag8.png" layer="2"/>
+	</Entity>
+
+
 	<Entity name="DrainRound" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/obj_drain_round.png" layer="1" blendMode="normal"/>
@@ -1178,7 +1290,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<CollisionInfo type="static" flags="10"/>
 		<RenderObject2D texture="data/textures/environment/obj_car_sedan01b_out_shot.png" layer="2"/>
 	</Entity>
-
+	
+	<Entity name="SedanbOutShotDoorOpen" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01d_out_shot_open.png" layer="2"/>
+	</Entity>
 
 	<Entity name="Sedanc" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
@@ -1336,6 +1452,23 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/obj_schoolbus.png" layer="2"/>
 	</Entity>
 
+	<Entity name="Locomotive" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_traincar1.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TrainCar" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_traincar2.png" layer="2"/>
+	</Entity>
+
+
+	<Entity name="Bus" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_bus.png" layer="2"/>
+	</Entity>
+
+
 	<Entity name="SportCar" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
 		<RenderObject2D texture="data/textures/environment/obj_car_sportscar01.png" layer="2"/>
@@ -1376,7 +1509,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<CollisionInfo type="static" flags="10"/>
 		<RenderObject2D texture="data/textures/environment/obj_car_policesedan02_out.png" layer="2"/>
 	</Entity>
-
+	
+	<Entity name="PoliceSedan2OutDoorOpen" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_policesedan02_out_open.png" layer="2"/>
+	</Entity>
 
 	<Entity name="CarConvertible" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
@@ -1386,6 +1523,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 	<Entity name="CarConvertibleOut" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
 		<RenderObject2D texture="data/textures/environment/obj_car_convertible01_out.png" layer="2"/>
+	</Entity>
+	
+	<Entity name="CarDoor" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/car_door.png" layer="2"/>
 	</Entity>
 
 	<Entity name="BikeCruiser" type="Cover" fogOfWarVisibility="partial">
@@ -1457,22 +1599,22 @@ CM_VISION_BLOCK					= 16, // full vision block
 
 	<Entity name="ChairWood" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
-		<RenderObject2D texture="data/textures/environment/obj_chair_wood.png" layer="2"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair_wood.dds" layer="2"/>
 	</Entity>
 
 	<Entity name="ChairPool" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
-		<RenderObject2D texture="data/textures/environment/obj_chair_pool.png" layer="2"/>
+		<RenderObject2D texture="data/textures/environment/obj_chair_pool.dds" layer="2"/>
 	</Entity>
 
 	<Entity name="LongChair1" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
-		<RenderObject2D texture="data/textures/environment/obj_longchair01.png" layer="2"/>
+		<RenderObject2D texture="data/textures/environment/obj_longchair01.dds" layer="2"/>
 	</Entity>
 
 	<Entity name="LongChair2" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
-		<RenderObject2D texture="data/textures/environment/obj_longchair02.png" layer="2"/>
+		<RenderObject2D texture="data/textures/environment/obj_longchair02.dds" layer="2"/>
 	</Entity>
 
 
@@ -1502,6 +1644,15 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/obj_armchair_office_green.png" layer="2"/>
 	</Entity>
 
+	<Entity name="TrainChair" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_trainchair.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TrainChairGroup" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_trainchair_group.png" layer="2"/>
+	</Entity>
 
 	<Entity name="Couch2p" type="Cover" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="10"/>
@@ -1553,6 +1704,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/obj_hotel_couch.png" layer="2"/>
 	</Entity>
 
+	<Entity name="Piano" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_piano.png" layer="2"/>
+	</Entity>
+
 	<Entity name="Bench01" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
 		<RenderObject2D texture="data/textures/environment/obj_bench01.png" layer="2"/>
@@ -1560,12 +1716,12 @@ CM_VISION_BLOCK					= 16, // full vision block
 
 	<Entity name="Bench02" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
-		<RenderObject2D texture="data/textures/environment/obj_bench02.png" layer="2"/>
+		<RenderObject2D texture="data/textures/environment/obj_bench02.dds" layer="2"/>
 	</Entity>
 
 	<Entity name="Bench03" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="6"/>
-		<RenderObject2D texture="data/textures/environment/obj_bench03.png" layer="2"/>
+		<RenderObject2D texture="data/textures/environment/obj_bench03.dds" layer="2"/>
 	</Entity>
 
 	<Entity name="BenchSport" type="Static" fogOfWarVisibility="partial">
@@ -1685,6 +1841,11 @@ CM_VISION_BLOCK					= 16, // full vision block
 	<Entity name="StreetLamp" type="Static" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="0"/>
 		<RenderObject2D texture="data/textures/environment/obj_streetlamp.png" layer="11"/>
+	</Entity>
+
+	<Entity name="DeerMount" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="0"/>
+		<RenderObject2D texture="data/textures/environment/obj_deermount.png" layer="11"/>
 	</Entity>
 
 	<Entity name="VacuumCleaner1" type="Static" fogOfWarVisibility="partial">
@@ -1888,13 +2049,23 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/rescue_zone.dds" layer="1"/>
 	</Entity>
-
+	
 	<Entity name="TimeBomb" type="TimeBomb" fogOfWarVisibility="hiddenInitially" tooltip="Time Bomb" explodeTimeSeconds="120" defuseTimeSeconds="20">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/time_bomb.tga" layer="3"/>
 	</Entity>
 
-	<Entity name="TimeBombTraining" type="TimeBomb" fogOfWarVisibility="full" tooltip="Time Bomb" explodeTimeSeconds="120" defuseTimeSeconds="20">
+	<Entity name="TimeBomb_Slow" type="TimeBomb" fogOfWarVisibility="hiddenInitially" tooltip="Time Bomb" explodeTimeSeconds="240" defuseTimeSeconds="20">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/time_bomb.tga" layer="3"/>
+	</Entity>
+
+	<Entity name="TimeBomb_Fast" type="TimeBomb" fogOfWarVisibility="hiddenInitially" tooltip="Time Bomb" explodeTimeSeconds="30" defuseTimeSeconds="6">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/time_bomb.tga" layer="3"/>
+	</Entity>
+
+	<Entity name="TimeBombTraining" type="TimeBomb" fogOfWarVisibility="hiddenInitially" tooltip="Time Bomb" explodeTimeSeconds="120" defuseTimeSeconds="20">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/time_bomb.tga" layer="3"/>
 	</Entity>
@@ -1957,38 +2128,62 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/lights/night_filter_dockwarehouse.tga" layer="11" scaleX="8" scaleY="8" blendMode="multiply"/>
 	</Entity>
 
+	<Entity name="Dock2NightFilter" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/night_filter_dock2.dds" layer="11" scaleX="4" scaleY="4" blendMode="multiply"/>
+	</Entity>
+
+	<Entity name="EmbassyCourtShadow" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/courtlight.tga" layer="11" scaleX="1" scaleY="1" blendMode="multiply"/>
+	</Entity>
+
 	<Entity name="Spotlight" type="Static" fogOfWarVisibility="partial">
-		<RenderObject2D texture="data/textures/environment/lights/spotlight.tga" layer="11" blendMode="add"/>
+		<RenderObject2D texture="data/textures/environment/lights/spotlight.tga" layer="12" blendMode="add"/>
+	</Entity>
+
+	<Entity name="LightGradient" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/light_gradient.tga" layer="12" scaleX="3" scaleY="3" blendMode="overlay"/>
+	</Entity>
+
+	<Entity name="Houses1Shadows" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/houses_shadow.dds" layer="11" scaleX="4" scaleY="4" blendMode="multiply"/>
+	</Entity>
+
+	<Entity name="LinearStreetShadows" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/linearstreet_shadow.dds" layer="11" scaleX="4" scaleY="4" blendMode="multiply"/>
+	</Entity>
+	
+	<Entity name="DcokExchangeNightFilter" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/environment/lights/dockexchange_nightfilter.tga" layer="11" scaleX="8" scaleY="8" blendMode="multiply"/>
 	</Entity>
 
 <!-- TUTORIAL TEXTS -->
 	<!-- type=RescueZone is intentional for reasons -->
-	<Entity name="TutorialText1" type="RescueZone" fogOfWarVisibility="hidden">
+	<Entity name="TutorialText1" type="RescueZone" fogOfWarVisibility="hiddenInitially">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial1.tga" layer="1" blendMode="normal"/>
 	</Entity>
 
-	<Entity name="TutorialText2" type="RescueZone" fogOfWarVisibility="hidden">
+	<Entity name="TutorialText2" type="RescueZone" fogOfWarVisibility="hiddenInitially">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial2.tga" layer="1" blendMode="normal"/>
 	</Entity>
 
-	<Entity name="TutorialText3" type="RescueZone" fogOfWarVisibility="hidden">
+	<Entity name="TutorialText3" type="RescueZone" fogOfWarVisibility="hiddenInitially">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial3.tga" layer="1" blendMode="normal"/>
 	</Entity>
 
-	<Entity name="TutorialText4" type="RescueZone" fogOfWarVisibility="hidden">
+	<Entity name="TutorialText4" type="RescueZone" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial4.tga" layer="1" blendMode="normal"/>
 	</Entity>
 
-	<Entity name="TutorialText5" type="RescueZone" fogOfWarVisibility="hidden">
+	<Entity name="TutorialText5" type="RescueZone" fogOfWarVisibility="partial">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial5.tga" layer="1" blendMode="normal"/>
 	</Entity>
 
-	<Entity name="TutorialText6" type="RescueZone" fogOfWarVisibility="hidden">
+	<Entity name="TutorialText6" type="RescueZone" fogOfWarVisibility="hiddenInitially">
 		<CollisionInfo type="static" flags="4"/>
 		<RenderObject2D texture="data/textures/environment/text_decals/text_tutorial6.tga" layer="1" blendMode="normal"/>
 	</Entity>
@@ -2038,6 +2233,15 @@ CM_VISION_BLOCK					= 16, // full vision block
 		<RenderObject2D texture="data/textures/environment/hidden_collision.tga" layer="3" sizeX="128" sizeY="32"/>
 	</Entity>
 
+	<Entity name="HiddenCollisionUltraThin" type="Static" fogOfWarVisibility="full" hidden="true">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/hidden_collision.tga" layer="3" sizeX="64" sizeY="16"/>
+	</Entity>
+
+	<Entity name="HiddenCollisionThinCover" type="Cover" fogOfWarVisibility="full" hidden="true">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/hidden_collision.tga" layer="3" sizeX="128" sizeY="32"/>
+	</Entity>
 
 	<Entity name="BulletShell" type="BulletShell" fogOfWarVisibility="partial">
 		<RenderObject2D texture="data/textures/fx/bullet_shell.tga" layer="2"/>
@@ -2077,4 +2281,104 @@ CM_VISION_BLOCK					= 16, // full vision block
 		/>
 	</Entity>
 
+<!-- DOPE -->
+	<Entity name="DopeLarge" type="Dope" fogOfWarVisibility="full" tooltip="Big Stash of Drugs. Evidence." sizeX="80" sizeY="80">
+		<CollisionInfo type="static" flags="0"/>
+		<!-- <RenderObject2D texture="data/textures/environment/obj_dope.png" layer="3"/> -->
+		<RenderObject2D texture="data/textures/fx/dope_destroy1.dds" layer="3">
+			<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="23" animationTimeMS="1500" numLoops="0"/>
+		</RenderObject2D>
+
+		<Parameters
+			dopeDisposeOfTime="10.0"
+			dopeRetrievalTime="5.0"
+			dopeHumanSlots="2"
+		/>
+	</Entity>
+
+	<Entity name="DopeSmall" type="Dope" fogOfWarVisibility="full" tooltip="Drugs. Evidence." sizeX="20" sizeY="29">
+		<CollisionInfo type="static" flags="6"/>
+		<!-- <RenderObject2D texture="data/textures/environment/obj_dope_small.png" layer="3"/> -->
+		<RenderObject2D texture="data/textures/fx/dope_destroy2.dds" layer="3">
+			<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="23" animationTimeMS="1500" numLoops="0"/>
+		</RenderObject2D>
+
+		<Parameters
+			dopeDisposeOfTime="10.0"
+			dopeRetrievalTime="5.0"
+			dopeHumanSlots="2"
+		/>
+	</Entity>
+
+	<Entity name="DopePapers" type="Dope" fogOfWarVisibility="full" tooltip="Important looking documents.">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/smallparts/obj_documents01.png" layer="3"/>
+
+		<Parameters
+			dopeDisposeOfTime="15.0"
+			dopeRetrievalTime="1.0"
+			dopeHumanSlots="1"
+		/>
+	</Entity>
+
+	<Entity name="DopeLaptop" type="Dope" fogOfWarVisibility="full" tooltip="Laptop. Might contain evidence.">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/smallparts/obj_laptop01.png"/>
+
+		<Parameters
+			dopeDisposeOfTime="10.0"
+			dopeRetrievalTime="10.0"
+			dopeHumanSlots="1"
+		/>
+	</Entity>
+
+	<Entity name="DopePCUnit" type="Dope" fogOfWarVisibility="full" tooltip="PC Master Race. Evidence!">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/smallparts/obj_pc01.png" layer="1"/>
+
+		<Parameters
+			dopeDisposeOfTime="20.0"
+			dopeRetrievalTime="20.0"
+			dopeHumanSlots="1"
+		/>
+	</Entity>
+
+	<Entity name="DopePapersOptional" type="Dope" fogOfWarVisibility="full" tooltip="Important looking documents.">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/smallparts/obj_documents01.png" layer="3"/>
+
+		<Parameters
+			dopeDisposeOfTime="15.0"
+			dopeRetrievalTime="1.0"
+			dopeHumanSlots="1"
+		/>
+	</Entity>
+
+	<Entity name="DopeLaptopOptional" type="Dope" fogOfWarVisibility="full" tooltip="Laptop. Might contain evidence.">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/smallparts/obj_laptop01.png"/>
+
+		<Parameters
+			dopeDisposeOfTime="10.0"
+			dopeRetrievalTime="10.0"
+			dopeHumanSlots="1"
+		/>
+	</Entity>
+
+<!-- STOREY SWITCHER -->
+	<Entity name="StoreySwitch_Up" type="StoreySwitcher" fogOfWarVisibility="full" tooltip="Use to get to the upper level">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/stairs_up.tga" layer="3"/>
+		<Parameters
+			direction="1"
+		/>
+	</Entity>
+
+	<Entity name="StoreySwitch_Down" type="StoreySwitcher" fogOfWarVisibility="full" tooltip="Use to get to the lower level">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/stairs_down.tga" layer="3"/>
+		<Parameters
+			direction="-1"
+		/>
+	</Entity>
 </Entities>

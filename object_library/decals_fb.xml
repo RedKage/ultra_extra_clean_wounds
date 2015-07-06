@@ -1,0 +1,5 @@
+<Entities>	
+	<Entity name="FlashbangMark" type="Static" fogOfWarVisibility="partial">
+		<RenderObject2D texture="data/textures/fx/flashbang_mark.tga" layer="1" blendMode="multiply_inverse"/>
+	</Entity>
+</Entities>

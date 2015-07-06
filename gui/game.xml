@@ -1,17 +1,10 @@
-	<!-- A word from the author...
-	/------------------------------------------------------------------\
-	|																   |
-	| You are  free to  use any custom code  from  this  mod  without  |
-	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
-	| proper credit at the top .xml file that uses my work and a link  | 
-	| back to my Steam Profile. 									   |
-	|                                                                  |
-	| Code authored by: Tom 'Red Panda' Richardson                     |
-	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
-	|                                                                  |
-	\------------------------------------------------------------------/
-	Please rate, favourite and share this mod on the workshop! -->
-
+<!--
+ | Code authored by: Tom 'Red Panda' Richardson
+ | Steam Profile: http://steamcommunity.com/id/WinkyFacePanda/
+ | 
+ | Edited by: RedShadow
+ | Steam Profile: http://steamcommunity.com/id/RedKage/
+ |-->
 
 <EventActionBatch name="GAME_GUI_DISABLE_DOOR_CAMERA">
 	<GUIAction type="Hide" target="ContextMenu_UnlockedDoor_Camera"/>
@@ -290,7 +283,26 @@
 
 <Item name="#ContextMenu_Door_UtilityItems" hidden="true">
 
-<!-- GEAR MOD ITEMS -->
+	<!-- MK13 Flashbang -->
+	<Checkbox name="MK13 Flashbang" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw 9-bang" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of 9-bangs" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<!-- Extra Gear -->
 	<Checkbox name="HE Breach Charge" defaultState="UncheckedState">
 		<UncheckedState tooltip="Plant HE breaching charges">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
@@ -309,8 +321,8 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-	
-		<Checkbox name="LTL Breach Charge" defaultState="UncheckedState">
+
+	<Checkbox name="LTL Breach Charge" defaultState="UncheckedState">
 		<UncheckedState tooltip="Plant LTL Breach Charges">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_normal.tga"/>
 			<OnHover>
@@ -328,7 +340,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-	
+
 	<Checkbox name="Glow Stick" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw a glow stick">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_normal.tga"/>
@@ -345,7 +357,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>	
-	
+
 	<Checkbox name="M26 Frag" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw a Frag grenade">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_normal.tga"/>
@@ -362,7 +374,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>	
-	
+
 	<Checkbox name="CS Gas" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw a CS grenade" sizeX="52" sizeY="52">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_normal.tga"/>
@@ -379,20 +391,7 @@
 		<CheckedState tooltip="Out of CS grenades" acceptInput="false" sizeX="52" sizeY="52">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_disabled.tga"/>
 		</CheckedState>
-	</Checkbox>	
-	
-	
-	
-
-<!-- GEAR MOD ITEMS -->
-
-
-
-
-
-
-
-
+	</Checkbox>
 
 	<Checkbox name="Flashbang" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw flashbang" sizeX="52" sizeY="52">
@@ -411,7 +410,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-
+	
 	<Checkbox name="Stinger" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw stinger grenade" sizeX="52" sizeY="52">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_normal.tga"/>
@@ -1241,7 +1240,26 @@
 <!-- these are copied where they are needed -->
 <Item name="#ContextMenu_PlayerUnit_UtilityItems" hidden="true">
 
-<!-- GEAR MOD  -->
+	<!-- MK13 Flashbang -->
+	<Checkbox name="MK13 Flashbang" defaultState="UncheckedState">
+		<UncheckedState tooltip="Throw 9-bang" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+			<OnHover>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_hover.tga"/>
+			</OnHover>
+			<OnClick>
+				<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
+				<GUIAction type="Hide" target="ContextMenu_UnlockedDoor"/>
+				<GUIAction type="Hide" target="ContextMenu_LockedDoor"/>
+				<GUIAction type="TriggerEvent" target="GUI_GAME_USE_UTILITY_POUCH_ITEM"/>
+			</OnClick>
+		</UncheckedState>
+		<CheckedState tooltip="Out of 9-bangs" acceptInput="false" sizeX="52" sizeY="52">
+			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_disabled.tga"/>
+		</CheckedState>
+	</Checkbox>
+
+	<!-- Extra Gear -->
 	<Checkbox name="P239" defaultState="UncheckedState">
 		<UncheckedState tooltip="Equip P239">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_normal.tga"/>
@@ -1259,7 +1277,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-	
+
 	<Checkbox name="P239-SD" defaultState="UncheckedState">
 		<UncheckedState tooltip="Equip P239-SD">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_normal.tga"/>
@@ -1277,8 +1295,8 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_pistolbug_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>	
-	
-	
+
+
 	<Checkbox name="M37" defaultState="UncheckedState">
 		<UncheckedState tooltip="Equip M37">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_switch_shotgunbug_normal.tga"/>
@@ -1300,15 +1318,15 @@
 	<StaticImage name="Breaching charge" tooltip="Breaching charges can only be used on a door">
 		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
 	</StaticImage>
-	
+
 	<StaticImage name="HE Breach Charge" tooltip="Breaching charges can only be used on a door">
 		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
 	</StaticImage>
-	
+
 	<StaticImage name="LTL Breach Charge" tooltip="Breaching charges can only be used on a door">
 		<RenderObject2D texture="data/textures/gui/contextual/icon_doorbreach_cha_disabled.tga"/>
 	</StaticImage>
-	
+
 	<Checkbox name="M26 Frag" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw a Frag grenade">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_normal.tga"/>
@@ -1325,7 +1343,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_m26frag_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-	
+
 	<Checkbox name="CS Gas" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw a CS grenade" sizeX="52" sizeY="52">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_normal.tga"/>
@@ -1342,7 +1360,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_csgas_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-	
+
 	<Checkbox name="Glow Stick" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw a glow stick">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_normal.tga"/>
@@ -1359,15 +1377,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_glowstick_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>	
-<!-- GEAR MOD  -->
-
-
-
-
-
-
-
-
+	
 	<Checkbox name="Flashbang" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw flashbang" sizeX="52" sizeY="52">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_normal.tga"/>
@@ -1792,7 +1802,7 @@
 		</OnClick>
 	</Button>
 
- 	<Button name="#ContextMenu_StoreySwitcher_NextStorey" origin="-32 40" tooltip="Go to the upper level (everyone within 4 meters of you will come along)">
+	<Button name="#ContextMenu_StoreySwitcher_NextStorey" origin="-32 40" tooltip="Go to the upper level (everyone within 4 meters of you will come along)">
 		<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_up_normal.tga"/>
 		<OnHover>
 			<RenderObject2D texture="data/textures/gui/contextual/icon_stairs_up_hover.tga"/>
