@@ -1,2 +1,2 @@
-# ultra_extra_clean_wounds
-Fusion of multiple DoorKickers mods
+# extra_clean_wounds
+Fusion of 3 DoorKickers mods: RedPanda's Extra Gear + RedPanda's Bullet Wounds Enhanced + SplashFriday's Clean Play

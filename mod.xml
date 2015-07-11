@@ -9,9 +9,10 @@
 <Mod
 	name="Extra Gear"
 	description="Offers  additional  support  gear  for  you to use from your support pouches"
-	image="textures/gui/mods/extragear.png"
-	author="Red Panda"
-	gameVersion="1.0.7"
-	tags="Gear"
-	changeNotes="Fixed a version number error"
+	image="textures/gui/mods/placeholder.png"
+	author="Red Panda, BogdanM, RedShadow"
+	gameVersion="1.0.8"
+	tags="Weapons, Gear"
+	changeNotes="Added BogdanM's MK13 Flashbang"
+/>
 />

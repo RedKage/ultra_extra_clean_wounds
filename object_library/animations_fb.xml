@@ -1,0 +1,10 @@
+<Animations>
+
+ 
+	<RenderObject2D name="ANIM_FX_FLASHBANG_EXPLODE" texture="data/textures/fx/explosion_fb.tga" layer="16 "blendMode="add" scaleX="2" scaleY="2">
+		
+	<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="290" animationTimeMS="7000" numLoops="0"/>
+	
+	</RenderObject2D>
+
+</Animations>

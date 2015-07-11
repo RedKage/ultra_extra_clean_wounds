@@ -1,0 +1,104 @@
+<Entities>
+	<Entity name="GetawayCarCrashed" type="Cover" fogOfWarVisibility="full" tooltip="Getaway Car. Suspects Inside.">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_sedan01d_out_shot.png" layer="2"/>
+	</Entity>
+
+	<Entity name="HotTub" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_hottub.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Tree" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_tree.png" layer="2"/>
+	</Entity>
+
+	<Entity name="TreeNonBlock" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_tree.png" layer="2"/>
+	</Entity>
+
+	<Entity name="XmasTree" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_xmastree.png" layer="2">
+			<TextureAnimation frameWidth="200" frameHeight="200" startFrame="0" endFrame="29" animationTimeMS="1300" numLoops="-1" randomizeStartTime="true"/>
+		</RenderObject2D>
+	</Entity>
+
+	<Entity name="Bush" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_bush.png" layer="2"/>
+	</Entity>
+
+	<Entity name="BlackCouch" type="Cover" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="10"/>
+		<RenderObject2D texture="data/textures/environment/obj_couchblack.png" layer="2"/>
+	</Entity>
+
+	<Entity name="MetalCistern" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_metalcistern.png" layer="2"/>
+	</Entity>
+
+	<Entity name="Pole" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_pole.png" layer="2"/>
+	</Entity>	
+	
+	<Entity name="CarSWATVan" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_swatvan.png" layer="2"/>
+	</Entity>
+	
+	<Entity name="CarTransportVan" type="Static" fogOfWarVisibility="partial">
+		<CollisionInfo type="static" flags="18"/>
+		<RenderObject2D texture="data/textures/environment/obj_car_transportvan.png" layer="2"/>
+	</Entity>	
+
+<!-- ROBBERY SCENARIO ITEMS -->
+	<Entity name="EscapeZone" type="EscapeZone" fogOfWarVisibility="full" tooltip="Escape Zone: Robbers escape if they reach this point" hidden="true">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/escape_zone.dds" layer="1"/>
+	</Entity>
+
+	<Entity name="RobberyItem1" type="RobberyItem" fogOfWarVisibility="hiddenInitially" tooltip="Door Kickers 2 Source Code!">
+		<CollisionInfo type="static" flags="4"/>
+		<RenderObject2D texture="data/textures/environment/smallparts/obj_laptop01.png"/>
+
+		<Parameters
+			robberyItemStolenTime="40.0"
+			robberyItemHumanSlots="1"
+		/>
+	</Entity>
+
+	<Entity name="RobberyGoldBars" type="RobberyItem" fogOfWarVisibility="full" tooltip="They're going after that gold, Joe.">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_goldbars.png"/>
+
+		<Parameters
+			robberyItemStolenTime="20.0"
+			robberyItemHumanSlots="2"
+		/>
+	</Entity>
+
+
+	<Entity name="RobberyCashStack" type="RobberyItem" fogOfWarVisibility="full" tooltip="Money makes the world go round.">
+		<CollisionInfo type="static" flags="6"/>
+		<RenderObject2D texture="data/textures/environment/obj_cashstack.png"/>
+
+		<Parameters
+			robberyItemStolenTime="1.4"
+			robberyItemHumanSlots="1"
+		/>
+	</Entity>
+
+<!-- PROJECTILE ITEMS -->
+	<Entity name="TestGrenadeLauncherProjectileBody" type="Projectile" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/grenadeBody_stinger.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>
+
+	<Entity name="TestBowProjectileBody" type="Projectile" fogOfWarVisibility="full">
+		<RenderObject2D texture="data/textures/fx/bullet_trace_shotgun.dds" layer="11" sizeX="48" sizeY="2"/>
+	</Entity>
+</Entities>

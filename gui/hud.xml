@@ -1,20 +1,15 @@
-	<!-- A word from the author...
-	/------------------------------------------------------------------\
-	|																   |
-	| You are  free to  use any custom code  from  this  mod  without  |
-	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
-	| proper credit at the top .xml file that uses my work and a link  | 
-	| back to my Steam Profile. 									   |
-	|                                                                  |
-	| Code authored by: Tom 'Red Panda' Richardson                     |
-	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
-	|                                                                  |
-	\------------------------------------------------------------------/
-	Please rate, favourite and share this mod on the workshop! -->
+<!--
+ | Code authored by: Tom 'Red Panda' Richardson
+ | Steam Profile: http://steamcommunity.com/id/WinkyFacePanda/
+ | 
+ | Edited by: RedShadow
+ | Steam Profile: http://steamcommunity.com/id/RedKage/
+ |-->
 
 <EventActionBatch name="GAME_GUI_SHOW_GAME_HUD">
 	<GUIAction type="Show" target="HUD"/>
-	<GUIAction type="Hide" target="HUD_Sniper"/> <!-- sniper HUD hidden by default -->
+	<GUIAction type="Hide" target="HUD_Sniper"/>
+	<!-- sniper HUD hidden by default -->
 	<GUIAction type="Hide" target="HUD_Maximize"/>
 </EventActionBatch>
 
@@ -29,7 +24,7 @@
 </EventActionBatch>
 
 <EventActionBatch name="GAME_GUI_SHOW_REPLAY_HUD">
-	<GUIAction type="Show" target="HUD_Replay"/>
+	<GUIAction type="Hide" target="HUD_Replay"/>
 	<GUIAction type="Check" target="HUD_ReplayPauseCheckbox"/>
 </EventActionBatch>
 
@@ -46,7 +41,7 @@
 </EventActionBatch>
 
 <EventActionBatch name="GAME_GUI_SHOW_SNIPER_HUD">
-	<GUIAction type="Show" target="HUD_Sniper"/>
+	<GUIAction type="Hide" target="HUD_Sniper"/>
 </EventActionBatch>
 
 <!-- these events are triggered by the game in response to the GUI_GAME_* events -->
@@ -379,47 +374,53 @@
 
 <Item name="HUD_SWAT_Tooltip_Items" hidden="true">
 
-<!-- Gear mod stuff -->
+	<!-- MK13 Flashbang -->
+	<StaticImage name="MK13 Flashbang">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_flashbang.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+
+	<!-- Extra Gear -->
 	<StaticImage name="M26 Frag">
 		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_m26frag.tga"/>
 		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
 	</StaticImage>
-	
+
 	<StaticImage name="Glow Stick">
 		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_glowstick.tga"/>
 		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
 	</StaticImage>
-	
-   <StaticImage name="Wide Lens Optiwand">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_camera.tga"/>
-   </StaticImage>
-   
-   <StaticImage name="HE Breach Charge">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_charge.tga"/>
-      <StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
-   </StaticImage>
-   
-   <StaticImage name="P239">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
-   </StaticImage>
-   
-   <StaticImage name="P239-SD">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
-   </StaticImage>   
-   
-   <StaticImage name="M37">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shotgun.tga"/>      
-   </StaticImage>   
-   
-    <StaticImage name="CS Gas">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_flashbang.tga"/>
-      <StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
-   </StaticImage>  
-   
-    <StaticImage name="LTL Breach Charge">
-      <RenderObject2D texture="data/textures/gui/hud/hud_tooltip_charge.tga"/>
-      <StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
-   </StaticImage> 
+
+	<StaticImage name="Wide Lens Optiwand">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_camera.tga"/>
+	</StaticImage>
+
+	<StaticImage name="HE Breach Charge">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_charge.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>
+
+	<StaticImage name="P239">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
+	</StaticImage>
+
+	<StaticImage name="P239-SD">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_pistol.tga"/>
+	</StaticImage>   
+
+	<StaticImage name="M37">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_shotgun.tga"/>      
+	</StaticImage>   
+
+	<StaticImage name="CS Gas">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_flashbang.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage>  
+
+	<StaticImage name="LTL Breach Charge">
+		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_charge.tga"/>
+		<StaticText name="#Quantity" origin="25 -1" text="1" alignH="left" font="data/textures/fonts/generic_normal_17" textColor="fff8dbb9"/>
+	</StaticImage> 
 
 	<StaticImage name="Flashbang">
 		<RenderObject2D texture="data/textures/gui/hud/hud_tooltip_flashbang.tga"/>
