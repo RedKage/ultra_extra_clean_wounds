@@ -83,8 +83,8 @@ And so here we are.
 
 So far I gotta talk to the different modders because I haven't yet.
 
-But, I plan to use the [WTFPL license](http://www.wtfpl.net/ "WTFPL – Do What the Fuck You Want to Public License") because... just because! :P  
-![WTFPL – Do What the Fuck You Want to Public License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png "WTFPL – Do What the Fuck You Want to Public License")  
+But, I plan to use the [WTFPL license](http://www.wtfpl.net/ "WTFPL â€“ Do What the Fuck You Want to Public License") because... just because! :P  
+![WTFPL â€“ Do What the Fuck You Want to Public License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png "WTFPL â€“ Do What the Fuck You Want to Public License")  
     
                 DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                         Version 2, December 2004
