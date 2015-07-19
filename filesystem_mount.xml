@@ -2,7 +2,7 @@
  | Code authored by: Tom 'Red Panda' Richardson
  | Steam Profile: http://steamcommunity.com/id/WinkyFacePanda/
  | 
-  |Code authored by: Splash Friday
+ | Code authored by: Splash Friday
  | Steam Profile: http://steamcommunity.com/id/splashfriday/
  | 
  | Edited by: RedShadow
@@ -11,26 +11,48 @@
 
 <filesystem_mount>
 	<ObjectLibrary>
+		<!-- animation needs to be first, since others can reference it -->
 		<MountFile name="data/object_library/extragear_animations.xml"/>
+		<MountFile name="data/object_library/animations_fb.xml"/>
+
+		<!-- attack types need to load before equipment -->
+		
+		<!-- equipment/abilities/doctrine need to load before humans -->
 		<MountFile name="data/object_library/extragear_explosive.xml"/>
 		<MountFile name="data/object_library/extragear_guns.xml"/>
-		<MountFile name="data/object_library/extragear_items.xml"/>
+		<MountFile name="data/object_library/extragear_items.xml"/>		
 		<MountFile name="data/object_library/extragear_entities_various.xml"/>
-		<MountFile name="data/object_library/extragear_decals.xml"/>
+
+		<!-- for anything else the order does not matter (humans/entities/fx/sounds/etc.) -->
+		<MountFile name="data/object_library/extragear_decals.xml"/>	
+		<MountFile name="data/object_library/equipment_fb.xml"/>
+		<MountFile name="data/object_library/entities_fb.xml"/>	
 	</ObjectLibrary>
 
 	<Maps>
+	
 	</Maps>
 
 	<RandomMaps>
+		<!-- add more here -->
 	</RandomMaps>
-
+	
+	<Campaigns>
+		<!-- add more here -->
+	</Campaigns>
+	
 	<Sounds>
 		<MountFile name="data/object_library/extragear_sounds.xml"/>
+		<MountFile name="data/object_library/sounds_fb.xml"/>
 	</Sounds>
 
 	<GUI>
+		<!-- add more here -->
 	</GUI>
+	
+	<Portraits>
+		<!-- add more here -->
+	</Portraits>
 </filesystem_mount>
 
 

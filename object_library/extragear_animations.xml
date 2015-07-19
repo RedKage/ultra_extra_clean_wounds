@@ -1,16 +1,10 @@
-	<!-- A word from the author...
-	/------------------------------------------------------------------\
-	|																   |
-	| You are  free to  use any custom code  from  this  mod  without  |
-	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
-	| proper credit at the top .xml file that uses my work and a link  | 
-	| back to my Steam Profile. 									   |
-	|                                                                  |
-	| Code authored by: Tom 'Red Panda' Richardson                     |
-	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
-	|                                                                  |
-	\------------------------------------------------------------------/
-	Please rate, favourite and share this mod on the workshop! -->
+<!--
+ | Code authored by: Tom 'Red Panda' Richardson
+ | Steam Profile: http://steamcommunity.com/id/WinkyFacePanda/
+ | 
+ | Edited by: RedShadow
+ | Steam Profile: http://steamcommunity.com/id/RedKage/
+ |-->
 
 <Animations>
 
@@ -18,21 +12,7 @@
 	<RenderObject2D name="ANIM_FX_CSGAS" texture="data/textures/fx/gas_gren_smoke.tga" blendMode="add" scaleX="3" scaleY="3" layer="21">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="31" animationTimeMS="2500" numLoops="9" randomizeStartTime="true"/>
 	</RenderObject2D>
-	
-	<!-- RedPanda's Enhanced Bulletwounds -->
-	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_CONCRETE" texture="data/textures/fx/bullet_impact_concrete.tga" layer="12">
-		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="7" animationTimeMS="550" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_CONCRETE_DEBRIS" texture="data/textures/fx/bullet_impact_concrete_debris.dds" layer="1">
-		<TextureAnimation frameWidth="32" frameHeight="32" startFrame="0" endFrame="6" animationTimeMS="550" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_CONCRETE_DEBRIS2" texture="data/textures/fx/bullet_impact_concrete_debris2.dds" layer="1">
-		<TextureAnimation frameWidth="32" frameHeight="32" startFrame="0" endFrame="6" animationTimeMS="550" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_SOFA" texture="data/textures/fx/bullet_impact_sofa.tga" layer="12">
-		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="7" animationTimeMS="550" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_STINGER_EXPLODE" texture="data/textures/fx/stinger_explosion.tga" layer="19" blendMode="add" scaleX="2.5" scaleY="2.5">
+		<RenderObject2D name="ANIM_FX_STINGER_EXPLODE" texture="data/textures/fx/stinger_explosion.tga" layer="19" blendMode="add" scaleX="2.5" scaleY="2.5">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="24" animationTimeMS="1200" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_FX_FRAGGRENADE_EXPLODE" texture="data/textures/fx/stinger_explosion.tga" layer="30" blendMode="add" scaleX="4.0" scaleY="4.0">
@@ -61,15 +41,6 @@
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_FX_DOOR_BREAK_DEBRIS" texture="data/textures/fx/door_break_debris.tga" layer="1">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="15" animationTimeMS="700" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_BLOOD_BURST1" texture="data/textures/fx/blood/bullet_impact_gore.tga" layer="30">
-		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="0" animationTimeMS="100" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_BLOOD_BURST2" texture="data/textures/fx/blood/bullet_impact_gore.tga" layer="30">
-		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="7" animationTimeMS="2000" numLoops="0"/>
-	</RenderObject2D>
-	<RenderObject2D name="ANIM_FX_BLOOD_POOL" texture="data/textures/fx/blood/blood_pool.tga" layer="1">
-		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="24" endFrame="24" animationTimeMS="2000" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_FX_WINDOW_BREAK" texture="data/textures/fx/window_break.tga" layer="1">
 		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="10"	animationTimeMS="500" numLoops="0"/>
@@ -250,7 +221,6 @@
 	<RenderObject2D name="ANIM_TORSO_FIRE_WEAPON">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="11" endFrame="15" animationTimeMS="150" numLoops="0"/>
 	</RenderObject2D>
-	<RenderObject2D name="ANIM_TORSO_RELOAD_WEAPON">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="16" endFrame="31" animationTimeMS="0" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_TORSO_IDLE">
@@ -300,11 +270,6 @@
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_SWAT_HANDCUFF">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="22" endFrame="38" animationTimeMS="1500" numLoops="0"/>
-	</RenderObject2D>
-	
-	<!-- RedPanda's Enhanced Bulletwounds fix -->
-	<RenderObject2D name="ANIM_SWAT_OPERATE_LOWER_DEVICE">
-		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="45" endFrame="49" animationTimeMS="650" numLoops="-1"/>
 	</RenderObject2D>
 	
 	<!--

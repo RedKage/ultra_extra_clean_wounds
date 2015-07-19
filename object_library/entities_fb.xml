@@ -1,0 +1,23 @@
+	<!-- A word from the author...
+	/------------------------------------------------------------------\
+	|																   |
+	| You are  free to  use any custom code  from  this  mod  without  |
+	| asking  and  adjust  to fit  your purpose.  All I ask is for is  |
+	| proper credit at the top .xml file that uses my work and a link  | 
+	| back to my Steam Profile. 									   |
+	|                                                                  |
+	| Code authored by: Tom 'Red Panda' Richardson                     |
+	| Steam Profile: 	  http://steamcommunity.com/id/WinkyFacePanda/ |
+	|                                                                  |
+	\------------------------------------------------------------------/
+	Please rate, favourite and share this mod on the workshop! -->
+
+<Entities>
+	<Entity name="MK13FlashbangBody" type="Grenade" fogOfWarVisibility="full" rotation="40">
+		<RenderObject2D texture="data/textures/fx/mk13flashbang_body.tga" layer="11" sizeX="8" sizeY="16"/>
+	</Entity>
+
+	<Entity name="MK13FlashbangMark" type="Static" fogOfWarVisibility="full">
+		<RenderObject2D texture="data/textures/fx/mk13flashbang_mark.tga" layer="1" blendMode="multiply_inverse"/>
+	</Entity>
+</Entities>

@@ -10,9 +10,9 @@
  |-->
 
 <Mod
-	name="Ultra. Extra. Clean. Wounds."
-	description="Clean replays that utilize the Extra Gear and Bullet Wounds mods."
-	image="textures/gui/mods/extra_clean_wounds.png"
+	name="Extra. Clean."
+	description="Clean replays that utilize the Extra Gear mods."
+	image="textures/gui/mods/extra_clean.png"
 	author="Red Panda, Splash Friday, BogdanM, RedShadow"
 	gameVersion="1.0.8"
 	tags="Other, Weapons, Gear, Interface, Replays, Sounds"
