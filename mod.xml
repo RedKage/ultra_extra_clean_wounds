@@ -16,5 +16,6 @@
 	author="Red Panda, Splash Friday, BogdanM, RedShadow"
 	gameVersion="1.0.8"
 	tags="Other, Weapons, Gear, Interface, Replays, Sounds"
-	changeNotes="Added BogdanM's MK13 Flashbang"
+	tags="Gear"
+	changeNotes="corpses were staying instead of the outline"
 />
