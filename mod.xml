@@ -9,10 +9,10 @@
 <Mod
 	name="Bullet Wounds Enhanced Edition"
 	description="Removes chalk outline and adds animated bullet wounds to the death animations"
-	image="textures/gui/mods/bulletwounds2_preview.png"
+	image="textures/gui/mods/placeholder.png"
 	author="Red Panda"
 	gameVersion="1.0.4"
 	tags="Other"
-	changeNotes=""
+	changeNotes="Fixed lower device animation"
 />
 
