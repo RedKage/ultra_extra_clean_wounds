@@ -8,8 +8,7 @@
 
 <EventActionBatch name="GAME_GUI_SHOW_GAME_HUD">
 	<GUIAction type="Show" target="HUD"/>
-	<GUIAction type="Hide" target="HUD_Sniper"/>
-	<!-- sniper HUD hidden by default -->
+	<GUIAction type="Hide" target="HUD_Sniper"/> <!-- sniper HUD hidden by default -->
 	<GUIAction type="Hide" target="HUD_Maximize"/>
 </EventActionBatch>
 
@@ -24,7 +23,7 @@
 </EventActionBatch>
 
 <EventActionBatch name="GAME_GUI_SHOW_REPLAY_HUD">
-	<GUIAction type="Hide" target="HUD_Replay"/>
+	<GUIAction type="Show" target="HUD_Replay"/>
 	<GUIAction type="Check" target="HUD_ReplayPauseCheckbox"/>
 </EventActionBatch>
 
@@ -41,7 +40,7 @@
 </EventActionBatch>
 
 <EventActionBatch name="GAME_GUI_SHOW_SNIPER_HUD">
-	<GUIAction type="Hide" target="HUD_Sniper"/>
+	<GUIAction type="Show" target="HUD_Sniper"/>
 </EventActionBatch>
 
 <!-- these events are triggered by the game in response to the GUI_GAME_* events -->

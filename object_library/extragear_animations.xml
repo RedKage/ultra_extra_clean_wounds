@@ -12,7 +12,21 @@
 	<RenderObject2D name="ANIM_FX_CSGAS" texture="data/textures/fx/gas_gren_smoke.tga" blendMode="add" scaleX="3" scaleY="3" layer="21">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="31" animationTimeMS="2500" numLoops="9" randomizeStartTime="true"/>
 	</RenderObject2D>
-		<RenderObject2D name="ANIM_FX_STINGER_EXPLODE" texture="data/textures/fx/stinger_explosion.tga" layer="19" blendMode="add" scaleX="2.5" scaleY="2.5">
+	
+	<!-- FX - some of these may have variable animation times in-game since they depend on context -->
+	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_CONCRETE" texture="data/textures/fx/bullet_impact_concrete.tga" layer="12">
+		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="7" animationTimeMS="550" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_CONCRETE_DEBRIS" texture="data/textures/fx/bullet_impact_concrete_debris.dds" layer="1">
+		<TextureAnimation frameWidth="32" frameHeight="32" startFrame="0" endFrame="6" animationTimeMS="550" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_CONCRETE_DEBRIS2" texture="data/textures/fx/bullet_impact_concrete_debris2.dds" layer="1">
+		<TextureAnimation frameWidth="32" frameHeight="32" startFrame="0" endFrame="6" animationTimeMS="550" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_BULLET_IMPACT_SOFA" texture="data/textures/fx/bullet_impact_sofa.tga" layer="12">
+		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="7" animationTimeMS="550" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_STINGER_EXPLODE" texture="data/textures/fx/stinger_explosion.tga" layer="19" blendMode="add" scaleX="2.5" scaleY="2.5">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="24" animationTimeMS="1200" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_FX_FRAGGRENADE_EXPLODE" texture="data/textures/fx/stinger_explosion.tga" layer="30" blendMode="add" scaleX="4.0" scaleY="4.0">
@@ -41,6 +55,15 @@
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_FX_DOOR_BREAK_DEBRIS" texture="data/textures/fx/door_break_debris.tga" layer="1">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="0" endFrame="15" animationTimeMS="700" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_BLOOD_BURST1" texture="data/textures/fx/blood/blood_burst_anim1.tga" layer="30">
+		<TextureAnimation frameWidth="64" frameHeight="32" startFrame="0" endFrame="3" animationTimeMS="200" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_BLOOD_BURST2" texture="data/textures/fx/blood/blood_burst_anim2.tga" layer="30">
+		<TextureAnimation frameWidth="64" frameHeight="32" startFrame="0" endFrame="3" animationTimeMS="200" numLoops="0"/>
+	</RenderObject2D>
+	<RenderObject2D name="ANIM_FX_BLOOD_POOL" texture="data/textures/fx/blood/blood_pool.tga" layer="1">
+		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="23" animationTimeMS="2000" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_FX_WINDOW_BREAK" texture="data/textures/fx/window_break.tga" layer="1">
 		<TextureAnimation frameWidth="64" frameHeight="64" startFrame="0" endFrame="10"	animationTimeMS="500" numLoops="0"/>
@@ -148,29 +171,29 @@
 
 	<!-- human die anims -->
 	<RenderObject2D name="ANIM_PISTOL_DIE" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="14" animationTimeMS="750" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="15" animationTimeMS="750" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_PISTOL_DIE2" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="22" endFrame="38" animationTimeMS="820" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="22" endFrame="39" animationTimeMS="820" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_PISTOL_DIE3" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="44" endFrame="53" animationTimeMS="650" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="44" endFrame="54" animationTimeMS="650" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_PISTOL_DIE4" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="55" endFrame="74" animationTimeMS="870" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="55" endFrame="75" animationTimeMS="870" numLoops="0"/>
 	</RenderObject2D>
 
 	<RenderObject2D name="ANIM_RIFLE_DIE" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="9" animationTimeMS="650" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="10" animationTimeMS="650" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_RIFLE_DIE2" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="11" endFrame="23" animationTimeMS="750" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="11" endFrame="24" animationTimeMS="750" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_RIFLE_DIE3" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="25" endFrame="40" animationTimeMS="850" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="25" endFrame="41" animationTimeMS="850" numLoops="0"/>
 	</RenderObject2D>
 	<RenderObject2D name="ANIM_RIFLE_DIE4" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="44" endFrame="71" animationTimeMS="1100" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="44" endFrame="72" animationTimeMS="1100" numLoops="0"/>
 	</RenderObject2D>
 
 	<RenderObject2D name="ANIM_ENEMY_DIE_TAZED" layer="1">
@@ -181,11 +204,11 @@
 	</RenderObject2D>
 
 	<RenderObject2D name="ANIM_HOSTAGE_DIE" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="27" animationTimeMS="900" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="28" animationTimeMS="900" numLoops="0"/>
 	</RenderObject2D>
 
 	<RenderObject2D name="ANIM_SHIELD_DIE" layer="1">
-		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="22" animationTimeMS="900" numLoops="0"/>
+		<TextureAnimation frameWidth="180" frameHeight="180" startFrame="0" endFrame="23" animationTimeMS="900" numLoops="0"/>
 	</RenderObject2D>
 
 	<!-- human legs anims -->
@@ -272,11 +295,14 @@
 	<RenderObject2D name="ANIM_SWAT_HANDCUFF">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="22" endFrame="38" animationTimeMS="1500" numLoops="0"/>
 	</RenderObject2D>
-	
 	<RenderObject2D name="ANIM_SWAT_OPERATE_LOWER_DEVICE">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="40" endFrame="54" animationTimeMS="1800" numLoops="0"/>
 	</RenderObject2D>
-
+	<!--
+	<RenderObject2D name="ANIM_SWAT_OPERATE_LOWER_DEVICE">
+		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="40" endFrame="62" animationTimeMS="1800" numLoops="0"/>
+	</RenderObject2D>
+	-->
 	<RenderObject2D name="ANIM_SWAT_CROWBAR_BREACH">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="64" endFrame="88" animationTimeMS="1500" numLoops="-1"/>
 	</RenderObject2D>
