@@ -8,8 +8,7 @@
 
 <EventActionBatch name="GAME_GUI_SHOW_GAME_HUD">
 	<GUIAction type="Show" target="HUD"/>
-	<GUIAction type="Hide" target="HUD_Sniper"/>
-	<!-- sniper HUD hidden by default -->
+	<GUIAction type="Hide" target="HUD_Sniper"/> <!-- sniper HUD hidden by default -->
 	<GUIAction type="Hide" target="HUD_Maximize"/>
 </EventActionBatch>
 
