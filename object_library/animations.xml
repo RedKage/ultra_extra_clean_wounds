@@ -303,14 +303,17 @@
 	<RenderObject2D name="ANIM_SWAT_HANDCUFF">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="22" endFrame="38" animationTimeMS="1500" numLoops="0"/>
 	</RenderObject2D>
+	
+	<!-- RedPanda's Enhanced Bulletwounds fix -->
 	<RenderObject2D name="ANIM_SWAT_OPERATE_LOWER_DEVICE">
-		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="40" endFrame="54" animationTimeMS="1800" numLoops="0"/>
+		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="45" endFrame="49" animationTimeMS="650" numLoops="-1"/>
 	</RenderObject2D>
 	<!--
 	<RenderObject2D name="ANIM_SWAT_OPERATE_LOWER_DEVICE">
-		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="40" endFrame="62" animationTimeMS="1800" numLoops="0"/>
+		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="40" endFrame="54" animationTimeMS="1800" numLoops="0"/>
 	</RenderObject2D>
 	-->
+	
 	<RenderObject2D name="ANIM_SWAT_CROWBAR_BREACH">
 		<TextureAnimation frameWidth="128" frameHeight="128" startFrame="64" endFrame="88" animationTimeMS="1500" numLoops="-1"/>
 	</RenderObject2D>

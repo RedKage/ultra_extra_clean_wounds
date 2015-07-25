@@ -12,9 +12,9 @@
 <Mod
 	name="Extra. Clean. Wounds."
 	description="Clean replays that utilize the Extra Gear and Bullet Wounds mods."
-	image="textures/gui/mods/extra_clean_wounds.png"
+	image="textures/gui/mods/placeholder.png"
 	author="Red Panda, Splash Friday, BogdanM, RedShadow"
 	gameVersion="1.0.8"
 	tags="Other, Weapons, Gear, Interface, Replays, Sounds"
-	changeNotes="Added BogdanM's MK13 Flashbang"
+	changeNotes="Fixed lower device animation"
 />
