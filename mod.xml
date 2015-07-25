@@ -10,8 +10,8 @@
 	name="Extra Gear"
 	description="Offers  additional  support  gear  for  you to use from your support pouches"
 	image="textures/gui/mods/placeholder.png"
-	author="Red Panda"
-	gameVersion="1.0.7"
-	tags="Gear"
-	changeNotes="Fixed a version number error"
+	author="Red Panda, BogdanM, RedShadow"
+	gameVersion="1.0.8"
+	tags="Other, Weapons, Gear, Sounds"
+	changeNotes="corpses were staying instead of the outline"
 />
