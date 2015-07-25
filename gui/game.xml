@@ -410,7 +410,7 @@
 			<RenderObject2D texture="data/textures/gui/contextual/icon_flashbang_disabled.tga"/>
 		</CheckedState>
 	</Checkbox>
-	
+
 	<Checkbox name="Stinger" defaultState="UncheckedState">
 		<UncheckedState tooltip="Throw stinger grenade" sizeX="52" sizeY="52">
 			<RenderObject2D texture="data/textures/gui/contextual/icon_stinger_normal.tga"/>
